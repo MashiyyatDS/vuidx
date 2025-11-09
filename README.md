@@ -1,73 +1,41 @@
-# md-plugin
+# vuidx
 
-This template should help get you started developing with Vue 3 in Vite.
+Lightweight Vue 3 UI primitives and composables for building markdown-style forms and modals made with Tailwindcss and Nuxt UI 4.
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Quick start
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
+pnpm dev      # start dev server
+pnpm build    # production build
 pnpm test:unit
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+## Components
 
-```sh
-# Install browsers for the first run
-npx playwright install
+-   [`MdForm`](src/components/MdForm.vue) — form wrapper with validation and submission helpers.  
+    File: [src/components/MdForm.vue](src/components/MdForm.vue)
 
-# When testing on CI, must build the project first
-pnpm build
+-   [`MdInput`](src/components/MdInput.vue) — input component with validation, labels and hint support.  
+    File: [src/components/MdInput.vue](src/components/MdInput.vue)
 
-# Runs the end-to-end tests
-pnpm test:e2e
-# Runs the tests only on Chromium
-pnpm test:e2e --project=chromium
-# Runs the tests of a specific file
-pnpm test:e2e tests/example.spec.ts
-# Runs the tests in debug mode
-pnpm test:e2e --debug
-```
+-   [`MdModal`](src/components/MdModal.vue) — accessible modal dialog with open/close and focus management.  
+    File: [src/components/MdModal.vue](src/components/MdModal.vue)
 
-### Lint with [ESLint](https://eslint.org/)
+These components are located in [src/components](src/components).
 
-```sh
-pnpm lint
-```
+## Composables
+
+-   [`useMdForm`](src/composables/useMdForm.ts) — form state, validation orchestration and submission helpers.  
+    File: [src/composables/useMdForm.ts](src/composables/useMdForm.ts)
+
+-   [`useMdField`](src/composables/useMdField.ts) — per-field state, validators and dirty/touched tracking.  
+    File: [src/composables/useMdField.ts](src/composables/useMdField.ts)
+
+-   [`useMdModal`](src/composables/useMdModal.ts) — modal visibility, focus trap and lifecycle helpers.  
+    File: [src/composables/useMdModal.ts](src/composables/useMdModal.ts)
+
+-   [`useMdInput`](src/composables/useMdInput.ts) — input-specific helpers (masking, formatting, composition events).  
+    File: [src/composables/useMdInput.ts](src/composables/useMdInput.ts)
+
+Composables live in [src/composables](src/composables).
