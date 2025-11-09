@@ -4,6 +4,7 @@ import type { MdSelectInterface } from '../components/InputTypes/MdSelect.vue.d.
 import { validate as rValidate } from 'robust-validator'
 import type { MdInputInterface } from '../components/MdInput.vue.d.ts'
 import { generateCalendarDateTime } from '../utils/index.ts'
+import type { Ref } from 'vue'
 
 export default function (mdInput: MdInputInterface | Ref<MdInputInterface>['value']) {
 	const get = () => {
@@ -52,9 +53,7 @@ export default function (mdInput: MdInputInterface | Ref<MdInputInterface>['valu
 				break
 
 			case 'datepicker':
-				mdInput.value = value
-					? generateCalendarDateTime(`${value}`)
-					: generateCalendarDateTime()
+				mdInput.value = value ? generateCalendarDateTime(`${value}`) : generateCalendarDateTime()
 
 				break
 
@@ -65,10 +64,7 @@ export default function (mdInput: MdInputInterface | Ref<MdInputInterface>['valu
 		}
 	}
 
-	const setSelectInput = (
-		select: MdSelectInterface | MdSelectMenuInterface | MdInputMenuInterface,
-		value: unknown | any
-	) => {
+	const setSelectInput = (select: MdSelectInterface | MdSelectMenuInterface | MdInputMenuInterface, value: unknown | any) => {
 		select.value = value
 	}
 
@@ -82,11 +78,7 @@ export default function (mdInput: MdInputInterface | Ref<MdInputInterface>['valu
 
 		if (mdInput.type === 'datepicker') {
 			mdInput.value = undefined
-		} else
-			mdInput.value =
-				'defaultValue' in mdInput.attributes
-					? mdInput.attributes.defaultValue
-					: undefinedNull
+		} else mdInput.value = 'defaultValue' in mdInput.attributes ? mdInput.attributes.defaultValue : undefinedNull
 
 		mdInput.formField.error = undefined
 	}
@@ -102,16 +94,11 @@ export default function (mdInput: MdInputInterface | Ref<MdInputInterface>['valu
 
 		const inputValue = get()
 
-		const result = await rValidate(
-			{ [fieldName]: inputValue },
-			{ [fieldName]: mdInput.validations?.rules }
-		)
+		const result = await rValidate({ [fieldName]: inputValue }, { [fieldName]: mdInput.validations?.rules })
 
 		if (mdInput['formField']) {
 			mdInput['formField']['error'] = result.isInvalid
-				? result.errors[fieldName]
-						?.map((error: any) => mdInput.validations?.messages[error.rule])
-						.join(', ')
+				? result.errors[fieldName]?.map((error: any) => mdInput.validations?.messages[error.rule]).join(', ')
 				: undefined
 		}
 

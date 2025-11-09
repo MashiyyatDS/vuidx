@@ -1,9 +1,5 @@
 <template>
-	<USelect
-		v-model="select.value"
-		v-bind="select.attributes"
-		:items="selectItems"
-		@change="useMdInput(select).onChange()">
+	<USelect v-model="select.value" v-bind="select.attributes" :items="selectItems" @change="useMdInput(select).onChange()">
 		<template #item-trailing="{ index }">
 			<div ref="target" v-if="selectItems.length === index + 1" />
 		</template>
@@ -15,7 +11,7 @@ import { computed, defineExpose, defineModel, ref } from 'vue'
 import type { MdSelectInterface } from './MdSelect.vue.d.ts'
 import useMdInput from '../../composables/useMdInput.ts'
 import { useIntersectionObserver } from '@vueuse/core'
-import { useTemplateRef } from 'vue'
+import { useTemplateRef, onMounted } from 'vue'
 
 const target = useTemplateRef('target')
 const select = defineModel<MdSelectInterface>('select', { required: true })
@@ -30,9 +26,7 @@ useIntersectionObserver(target, ([entry]) => {
 })
 
 const items = ref<any[]>([])
-const selectItems = computed(() =>
-	select.value.itemsProvider.type === 'default' ? select.value.itemsProvider.items : items.value
-)
+const selectItems = computed(() => (select.value.itemsProvider.type === 'default' ? select.value.itemsProvider.items : items.value))
 
 onMounted(async () => {
 	const itemsProvider = select.value.itemsProvider

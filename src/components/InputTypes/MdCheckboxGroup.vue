@@ -5,15 +5,13 @@
 <script setup lang="ts">
 import type { AcceptableValue } from '@nuxt/ui/runtime/types/utils.js'
 import type { MdCheckboxGroupInterface } from './MdCheckboxGroup.vue.d.ts'
-import { computed, defineModel, ref } from 'vue'
+import { computed, defineModel, ref, onMounted } from 'vue'
 
 const checkboxGroup = defineModel<MdCheckboxGroupInterface>('checkboxGroup', { required: true })
 
 const items = ref<any[]>([])
 const checkboxGroupItems = computed(() =>
-	checkboxGroup.value.itemsProvider.type === 'default'
-		? checkboxGroup.value.itemsProvider.items
-		: items.value
+	checkboxGroup.value.itemsProvider.type === 'default' ? checkboxGroup.value.itemsProvider.items : items.value
 )
 
 onMounted(async () => {

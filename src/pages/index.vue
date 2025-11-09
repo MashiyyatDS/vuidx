@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import { useMdModal, useMdForm, useMdField } from '@/composables'
 import type { MdInputInterface, MdModalInterface } from '@/index'
+import { useToast } from '@nuxt/ui/runtime/composables/useToast.js'
 import { reactive } from 'vue'
 
 const getCompanies = async () => {

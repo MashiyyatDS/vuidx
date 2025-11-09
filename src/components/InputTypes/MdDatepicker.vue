@@ -1,8 +1,6 @@
 <template>
 	<UPopover>
-		<UButton
-			v-bind="datepicker['buttonAttributes']"
-			:disabled="!!datepicker.attributes['disabled']">
+		<UButton v-bind="datepicker['buttonAttributes']" :disabled="!!datepicker.attributes['disabled']">
 			{{ modelValue ? df.format(modelValue.toDate(getLocalTimeZone())) : 'Select a date' }}
 		</UButton>
 
@@ -16,7 +14,7 @@
 import { DateFormatter, getLocalTimeZone, CalendarDateTime } from '@internationalized/date'
 import type { MdDatepickerInterface } from './MdDatepicker.vue.d.ts'
 import { generateCalendarDateTime } from '../../utils'
-import { defineModel, shallowRef } from 'vue'
+import { defineModel, shallowRef, watch } from 'vue'
 
 const datepicker = defineModel<MdDatepickerInterface>('datepicker', { required: true })
 

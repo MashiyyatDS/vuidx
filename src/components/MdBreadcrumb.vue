@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import { convertStringCases } from '../utils'
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 const items = computed(() => {
 	const route = useRoute()

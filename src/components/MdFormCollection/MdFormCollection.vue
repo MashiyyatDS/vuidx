@@ -6,19 +6,13 @@
 
 		<UEmpty v-if="!collection?.items?.length" v-bind="collection?.attributes?.empty">
 			<template #body>
-				<UButton
-					:label="`Add Item`"
-					@click="addItem"
-					v-bind="collection?.attributes?.addButton" />
+				<UButton :label="`Add Item`" @click="addItem" v-bind="collection?.attributes?.addButton" />
 			</template>
 		</UEmpty>
 
 		<div class="grid grid-cols-12 gap-1">
 			<transition-group v-bind="transitionAttr">
-				<div
-					:class="['relative', collection?.grid ?? 'col-span-12']"
-					v-for="(form, formKey) in collection?.items"
-					:key="formKey">
+				<div :class="['relative', collection?.grid ?? 'col-span-12']" v-for="(form, formKey) in collection?.items" :key="formKey">
 					<MdForm :form="{ ...form, title: '' }" class="w-full" />
 
 					<UButton
@@ -32,11 +26,7 @@
 		</div>
 
 		<div class="flex justify-center my-2" v-if="collection?.items?.length">
-			<UButton
-				v-bind="collection?.attributes?.addButton"
-				@click="addItem"
-				icon="material-symbols:add-2-rounded"
-				class="self-center" />
+			<UButton v-bind="collection?.attributes?.addButton" @click="addItem" icon="material-symbols:add-2-rounded" class="self-center" />
 		</div>
 	</UCard>
 </template>
@@ -45,6 +35,7 @@
 import type { MdFormCollection } from '../MdForm.vue.d.ts'
 import MdForm from '../MdForm.vue'
 import { deepClone } from '../../utils/index.ts'
+import { reactive } from 'vue'
 
 const collection = defineModel<MdFormCollection>('collection', { required: true })
 

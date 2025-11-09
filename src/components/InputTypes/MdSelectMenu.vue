@@ -6,10 +6,7 @@
 		@focus="onFocus"
 		@update:search-term="onInput">
 		<template #content-bottom>
-			<div
-				ref="bottomIntrRef"
-				id="bottomIntrRef"
-				class="w-full border-t border-default flex justify-center p-1">
+			<div ref="bottomIntrRef" id="bottomIntrRef" class="w-full border-t border-default flex justify-center p-1">
 				<span>Bottom</span>
 			</div>
 		</template>
@@ -20,16 +17,12 @@
 import type { AcceptableValue } from '@nuxt/ui/runtime/types/utils.js'
 import type { MdSelectMenuInterface } from './MdSelectMenu.vue.d.ts'
 import useMdInput from '../../composables/useMdInput.ts'
-import { computed, defineExpose, defineModel } from 'vue'
+import { computed, defineExpose, defineModel, ref, onMounted } from 'vue'
 
 const selectMenu = defineModel<MdSelectMenuInterface>('selectMenu', { required: true })
 
 const items = ref<AcceptableValue[]>([])
-const selectMenuItems = computed(() =>
-	selectMenu.value.itemsProvider.type === 'default'
-		? selectMenu.value.itemsProvider.items
-		: items.value
-)
+const selectMenuItems = computed(() => (selectMenu.value.itemsProvider.type === 'default' ? selectMenu.value.itemsProvider.items : items.value))
 
 onMounted(async () => {
 	const itemsProvider = selectMenu.value.itemsProvider
