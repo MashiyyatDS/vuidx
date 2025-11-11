@@ -1,8 +1,13 @@
 <template>
 	<div class="flex justify-center overflow-auto">
-		<UCard :ui="{ header: 'sm:p-2 p-2 flex gap-1 justify-center', body: 'sm:p-2 p-2' }" class="w-[800px] m-3">
+		<UCard
+			:ui="{ header: 'sm:p-2 p-2 flex gap-1 justify-center', body: 'sm:p-2 p-2' }"
+			class="w-[800px] m-3">
 			<template #header>
-				<UButton label="Open Modal" class="self-center cursor-pointer" @click="useMdModal(modalParams).openModal(saveData)" />
+				<UButton
+					label="Open Modal"
+					class="self-center cursor-pointer"
+					@click="useMdModal(modalParams).openModal(saveData)" />
 
 				<UButton label="Set Data" @click="useMdForm(modalParams.form).set(formData)" />
 				<UButton label="Get Data" @click="getData" />
@@ -295,7 +300,8 @@ const modalParams: MdModalInterface = reactive({
 					empty: {
 						title: 'No employees found',
 						icon: 'streamline-ultimate-color:office-employee',
-						description: 'It looks like you haven`t added any items. Create employee to get started.',
+						description:
+							'It looks like you haven`t added any items. Create employee to get started.',
 					},
 					removeButton: {
 						class: 'rounded-full',
@@ -463,13 +469,21 @@ const getData = () => {
 }
 
 const onNameChange = () => {
-	const userFirstName = useMdField(modalParams.form, 'user.first_name').getField() as MdInputInterface
-	const userLastName = useMdField(modalParams.form, 'user.last_name').getField() as MdInputInterface
+	const userFirstName = useMdField(
+		modalParams.form,
+		'user.first_name'
+	).getField() as MdInputInterface
+	const userLastName = useMdField(
+		modalParams.form,
+		'user.last_name'
+	).getField() as MdInputInterface
 	const userEmail = useMdField(modalParams.form, 'user.email').getField() as MdInputInterface
 
 	userEmail.value =
 		userLastName.value && userFirstName.value
-			? `${userLastName.value?.replace(' ', '').toLowerCase()}.${userFirstName.value?.toLowerCase()}@gmail.com`
+			? `${userLastName.value
+					?.replace(' ', '')
+					.toLowerCase()}.${userFirstName.value?.toLowerCase()}@gmail.com`
 			: ''
 }
 

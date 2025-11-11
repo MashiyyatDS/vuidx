@@ -12,7 +12,7 @@ export interface MdSelectMenuSlots {
 
 export interface MdSelectMenuInterface extends MdInputBaseInterface {
 	type: 'select-menu'
-	value?: any
+	value?: any[]
 	attributes: SelectMenuProps | Record<string, AcceptableValue>
 	itemsProvider: ItemApiProvider | ItemDefaultProvider
 }

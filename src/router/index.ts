@@ -1,16 +1,41 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    component: () => import('@/pages/index.vue'),
-    name: 'IndexPage',
-  },
+	{
+		path: '/',
+		component: () => import('@/pages/index.vue'),
+		name: 'index-page',
+	},
+	{
+		path: '/forms',
+		component: () => import('@/pages/forms.vue'),
+		name: 'forms-page',
+	},
+	{
+		path: '/fields',
+		component: () => import('@/pages/fields.vue'),
+		name: 'fields-page',
+	},
+	{
+		path: '/collections',
+		component: () => import('@/pages/collections.vue'),
+		name: 'collections-page',
+	},
+	{
+		path: '/tables',
+		component: () => import('@/pages/tables.vue'),
+		name: 'tables-page',
+	},
+	{
+		path: '/modals',
+		component: () => import('@/pages/modals.vue'),
+		name: 'modals-page',
+	},
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes,
 })
 
 export default router

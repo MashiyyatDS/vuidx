@@ -17,7 +17,7 @@ interface MdFormSlots {
 interface MdFormCollection {
 	title?: string
 	form: MdFormInterface
-	items?: MdFormInterface[]
+	items?: any[] // Use `any[]` instead of `MdFormInterface[]` to break recursion
 	grid?: string
 	attributes: {
 		card?: CardProps | Record<string, any>
@@ -27,16 +27,16 @@ interface MdFormCollection {
 	}
 }
 
-interface MdFormInterface {
+interface MdFormBase {
 	title?: string
 	description?: string
 	attributes?: CardProps
 	fields?: Record<string, MdInputInterface>
 	forms?: Record<string, MdFormInterface>
 	steps?: Record<string, MdFormInterface>
-	collections?: {
-		[key: string]: MdFormCollection
-	}
+	collections?: Record<string, MdFormCollection>
 }
+
+type MdFormInterface = MdFormBase
 
 export type { MdFormInterface, MdFormSlots, MdFormProps, MdFormCollection }
