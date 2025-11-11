@@ -1,40 +1,49 @@
 <template>
-	<UTable :data="items" :columns="dataTable.columns">
-		<template v-for="slotColumn in slotColumns" #[`${slotColumn}`]="{ row }">
-			<slot :name="slotColumn" v-bind="row.original" />
+	<UCard v-bind="dataTable.attributes?.card">
+		<template #header>
+			<UButton icon="mdi-plus" />
 		</template>
-	</UTable>
 
-	<UPagination v-model:page="page" :total="100" />
+		<UTable :data="items" v-bind="dataTable.attributes?.table" :columns="columns">
+			<template v-for="slotColumn in slotColumns" #[`${slotColumn}`]="{ row }">
+				<slot :name="slotColumn" v-bind="row.original" />
+			</template>
+
+			<template #actions-cell="{ row }">
+				<slot name="prepend-action" v-bind="row.original" />
+
+				<UButton icon="mdi-edit" @click="console.log(row.original)" />
+
+				<UButton icon="mdi-delete" @click="console.log(row.original)" />
+
+				<slot name="append-action" v-bind="row.original" />
+			</template>
+		</UTable>
+
+		<template #footer>
+			<UPagination v-model:page="page" :total="100" />
+		</template>
+	</UCard>
 
 	<slot name="items" v-bind="items" />
 </template>
 
 <script setup lang="ts" generic="M extends Record<string, any>">
+import type { VdxTableInterface, VdxTableSlot } from './VdxTable.vue.d.ts'
 import type { TableColumn } from '@nuxt/ui'
+import type { ComputedRef } from 'vue'
 
-interface VdxTable<M> {
-	title?: string
-	items?: M[]
-	columns: TableColumn<never, unknown>[]
-}
-
-const dataTable = defineModel<VdxTable<M>>('data-table', { required: true })
+const dataTable = defineModel<VdxTableInterface<M>>('data-table', { required: true })
 const slotColumns = computed(() =>
 	dataTable.value.columns
 		.filter((column: any) => column?.accessorKey?.includes('vdx-'))
 		.map((col: any) => `${col.accessorKey}-cell`)
 ) as ComputedRef<`vdx-${Extract<keyof M, string>}-cell`[]>
 
-type VdxTableSlot<M> = {
-	'append-header': (items: M[]) => void
-	'prepend-header': (items: M[]) => void
-	'append-footer': (items: M[]) => void
-	'prepend-footer': (items: M[]) => void
-	'append-action': (item: M) => void
-	'prepend-action': (item: M) => void
-	items: (items: M[]) => any
-} & { [K in keyof M as `vdx-${string & K}-cell`]?: (item: M) => void }
+const columns = computed((): TableColumn<unknown, unknown>[] => [
+	...dataTable.value.columns,
+	{ accessorKey: 'actions', header: 'Actions' },
+])
 
 defineSlots<VdxTableSlot<M>>()
 

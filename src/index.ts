@@ -10,15 +10,6 @@ import './assets/md.css'
 
 import { setLocales, en, register, isRegistered } from 'robust-validator'
 
-const validatePHContactNumber = (value: string) => {
-	const sanitized = value.replace(/[\s-]/g, '')
-	const regex = /^(?:\+63|0)9\d{9}$/
-	return regex.test(sanitized)
-}
-
-if (!isRegistered('phContact'))
-	register('phContact', validatePHContactNumber, { en: 'Please provide a valid contact number' })
-
 setLocales(en)
 
 declare module 'vue' {
@@ -32,8 +23,13 @@ declare module 'vue' {
 	}
 }
 
+interface RuleInterface {
+	ruleFunction: (value: any) => boolean
+	name: string
+}
+
 export default {
-	install: (app: App<Element>) => {
+	install: (app: App<Element>, options?: { rules?: RuleInterface[] }) => {
 		app.component('MdForm', MdForm)
 		app.component('MdInput', MdInput)
 		app.component('MdModal', MdModal)
@@ -42,6 +38,14 @@ export default {
 		app.component('VdxTable', () => import('./components/VdxTable.vue'))
 
 		app.use(ui)
+
+		if (options?.rules) {
+			for (const rule of options?.rules) {
+				if (isRegistered(rule.name)) continue
+
+				register(rule.name, rule.ruleFunction, { en: 'Rule Message' })
+			}
+		}
 	},
 }
 

@@ -9,18 +9,20 @@
 		<template #vdx-image-cell="row">
 			<UAvatar class="rounded-none squircle" :src="row.image" />
 		</template>
+
+		<template #vdx-select-cell="row">
+			<!--<UCheckboxGroup v-model="selectedCompanies" />-->
+		</template>
+
+		<template #prepend-action="company">
+			<UButton icon="mdi-info" @click="console.log(company)" />
+		</template>
 	</VdxTable>
 </template>
 
 <script setup lang="ts">
+import type { VdxTableInterface } from '@/components/VdxTable.vue.d.ts'
 import { useMdModal, type MdModalInterface } from '../index'
-import type { TableColumn } from '@nuxt/ui'
-
-interface VdxTable<M> {
-	title?: string
-	items?: M[]
-	columns: TableColumn<never, unknown>[]
-}
 
 interface Company {
 	id: number
@@ -29,15 +31,33 @@ interface Company {
 	rating: any
 }
 
-const dataTable = reactive<VdxTable<Company>>({
+const dataTable = reactive<VdxTableInterface<Company>>({
 	title: 'Sample Table',
 	columns: [
+		{ accessorKey: 'vdx-select', header: 'Select' },
 		{ accessorKey: 'id' },
 		{ accessorKey: 'vdx-image', header: 'Image' },
 		{ accessorKey: 'vdx-name', header: 'Company Name' },
 		{ accessorKey: 'rating' },
 	],
+	attributes: {
+		card: {
+			ui: {
+				body: 'sm:p-0 p-0',
+				header: 'sm:p-3 p-3',
+				footer: 'sm:p-3 p-3 flex justify-center',
+				root: 'm-3',
+			},
+		},
+		table: {
+			ui: {
+				td: 'sm:p-2 p-2',
+			},
+		},
+	},
 })
+
+const selectedCompanies = ref([])
 
 const modalParams: MdModalInterface = reactive({
 	attributes: {

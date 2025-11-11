@@ -28,7 +28,7 @@ export default defineConfig({
 			},
 			ui: {
 				colors: {
-					primary: 'blue',
+					primary: 'green',
 					secondary: 'purple',
 					neutral: 'zinc',
 				},
