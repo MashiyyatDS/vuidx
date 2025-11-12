@@ -20,6 +20,8 @@ type VdxTableSlot<M> = {
 	'append-action': (item: M) => void
 	'prepend-action': (item: M) => void
 	items: (items: M[]) => any
-} & { [K in keyof M as `vdx-${string & K}-cell`]?: (item: M) => void }
+} & { [K in keyof M as `vdx-${string & K}-cell`]?: (item: M) => void } & {
+	[key: `vdx-${string}-cell`]: (item: M) => void
+}
 
 export type { VdxTableInterface, VdxTableSlot }

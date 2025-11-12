@@ -11,7 +11,7 @@
 		</template>
 
 		<template #vdx-select-cell="row">
-			<!--<UCheckboxGroup v-model="selectedCompanies" />-->
+			<!--<UCheckboxGroup v-model="selectedCompanies" :default-value="row" />-->
 		</template>
 
 		<template #prepend-action="company">
@@ -56,8 +56,6 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 		},
 	},
 })
-
-const selectedCompanies = ref([])
 
 const modalParams: MdModalInterface = reactive({
 	attributes: {
