@@ -6,9 +6,9 @@
 		</template>
 
 		<UTable
+			v-bind="dataTable.attributes?.table"
 			:loading="loading"
 			:data="data"
-			v-bind="dataTable.attributes?.table"
 			:columns="columns"
 			v-model:expanded="expandedRow">
 			<template v-for="slotColumn in slotColumns" #[`${slotColumn}`]="{ row }">
@@ -16,18 +16,18 @@
 			</template>
 
 			<template #expanded="{ row }">
-				<slot name="expanded" v-bind="{ item: row.original }" />
+				<slot name="expanded" v-bind="{ item: getRowData(row) }" />
 			</template>
 
 			<template #actions-cell="{ row }">
 				<div class="flex gap-1">
-					<slot name="prepend-action" v-bind="{ item: row.original }" />
+					<slot name="prepend-action" v-bind="{ item: getRowData(row) }" />
 
 					<UButton icon="mdi-edit" @click="console.log(row.original)" />
 
 					<UButton icon="mdi-delete" @click="console.log(row.original)" />
 
-					<slot name="append-action" v-bind="{ item: row.original }" />
+					<slot name="append-action" v-bind="{ item: getRowData(row) }" />
 				</div>
 			</template>
 		</UTable>
@@ -40,36 +40,42 @@
 
 <script setup lang="ts" generic="M extends Record<string, any>">
 import type { VdxTableInterface, VdxTableSlot } from './VdxTable.vue.d.ts'
+import type { Row } from '@tanstack/vue-table'
 import type { TableColumn } from '@nuxt/ui'
 import type { ComputedRef } from 'vue'
 
-const dataTable = defineModel<VdxTableInterface<M>>('data-table', { required: true })
-const slotColumns = computed(() =>
-	dataTable.value.columns
-		.filter((column: any) => column?.accessorKey?.includes('vdx-'))
-		.map((col: any) => `${col.accessorKey}-cell`)
-) as ComputedRef<`vdx-${Extract<keyof M, string>}-cell`[]>
+/**
+ * Defined Slots
+ */
+defineSlots<VdxTableSlot<M>>()
 
-const expandedRow = ref()
-const UButton = resolveComponent('UButton')
+/**
+ * Define Model
+ */
+const dataTable = defineModel<VdxTableInterface<M>>('data-table', { required: true })
+
+/**
+ * Computed columns
+ */
 const columns = computed((): TableColumn<unknown, unknown>[] => [
 	...(dataTable.value?.attributes?.table?.expanded
 		? [
 				{
 					id: 'expand',
-					cell: ({ row }) =>
-						h(UButton, {
+					cell: (data: { row: Row<M> }) =>
+						h(resolveComponent('UButton'), {
 							color: 'neutral',
 							variant: 'ghost',
 							icon: 'i-lucide-chevron-down',
+							class: 'rounded-full cursor-pointer',
 							'aria-label': 'Expand',
 							ui: {
 								leadingIcon: [
 									'transition-transform',
-									row.getIsExpanded() ? 'duration-200 rotate-180' : '',
+									data.row.getIsExpanded() ? 'duration-200 rotate-180' : '',
 								],
 							},
-							onClick: () => row.toggleExpanded(),
+							onClick: () => data.row.toggleExpanded(),
 						}),
 				},
 		  ]
@@ -80,33 +86,25 @@ const columns = computed((): TableColumn<unknown, unknown>[] => [
 		: []),
 ])
 
-defineSlots<VdxTableSlot<M>>()
+/**
+ * Columns for slots
+ */
+const slotColumns = computed(() =>
+	dataTable.value.columns
+		.filter((column: any) => column?.accessorKey?.includes('vdx-'))
+		.map((col: any) => `${col.accessorKey}-cell`)
+) as ComputedRef<`vdx-${Extract<keyof M, string>}-cell`[]>
+
+const expandedRow = ref()
+
+const getRowData = (row: Row<unknown>): M => row.original as M
 
 const page = ref(5)
-//const asyncData = () => {
-//	const loading = ref(false)
-//	const data = ref([])
-//	const fetchData = async () => {
-//		data.value = []
-//		loading.value = true
-
-//		const responseJson = await fetch('https://retoolapi.dev/VJ3ZG3/data')
-
-//		const responseData = await responseJson.json()
-
-//		data.value = responseData
-
-//		loading.value = false
-
-//		return responseData
-//	}
-
-//	watchEffect(async () => await fetchData())
-
-//	return { loading, data, fetchData }
-//}
-
-//const { data, fetchData, loading } = asyncData()
 
 const { data, loading, fetchData } = dataTable.value.paginationProvider()
+
+/**
+ * Defined Exposed data
+ */
+defineExpose({ data })
 </script>

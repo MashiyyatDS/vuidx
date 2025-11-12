@@ -14,8 +14,8 @@
 			<UCheckboxGroup v-model="selectedCompanies" :items="[item.name]" />
 		</template>
 
-		<template #prepend-action="company">
-			<UButton icon="mdi-info" @click="console.log(company)" />
+		<template #prepend-action="{ item }">
+			<UButton icon="mdi-info" @click="console.log(item)" />
 		</template>
 
 		<template #expanded="{ item }">
@@ -37,9 +37,9 @@ interface Company {
 	rating: any
 }
 
-const paginationProvider = () => {
+const paginationProvider = <M>() => {
 	const loading = ref(false)
-	const data = ref([])
+	const data = ref<M[]>([])
 
 	const fetchData = async () => {
 		data.value = []

@@ -1,10 +1,6 @@
 import type { CardProps, TableProps } from '@nuxt/ui'
 import type { MdModalInterface } from './MdModal.vue'
 
-//type PaginationParams = {
-//	url: string
-//}
-
 type PaginationReturn<M> = {
 	loading: Ref<boolean>
 	data: M extends string ? Ref<any[]> : Ref<M[]>
@@ -22,7 +18,7 @@ interface VdxTableInterface<M = string> {
 	}
 	modal?: MdModalInterface
 	expandable?: boolean
-	paginationProvider: PaginationProvider
+	paginationProvider: PaginationProvider<M>
 	actions?:
 		| {
 				create?: boolean
@@ -37,9 +33,9 @@ type VdxTableSlot<M> = {
 	'prepend-header': (items: M[]) => void
 	'append-footer': (items: M[]) => void
 	'prepend-footer': (items: M[]) => void
-	'append-action': (props: { item: M | unknown }) => void
-	'prepend-action': (props: { item: M | unknown }) => void
-	expanded: (props: { item: M | unknown }) => void
+	'append-action': (props: { item: M }) => void
+	'prepend-action': (props: { item: M }) => void
+	expanded: (props: { item: M }) => void
 	items: (props: { items: M[] }) => any
 } & { [K in keyof M as `vdx-${string & K}-cell`]?: (props: { item: M }) => void } & {
 	[key: `vdx-${string}-cell`]: (props: { item: M }) => void
