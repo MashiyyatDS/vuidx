@@ -21,6 +21,7 @@ export default defineConfig({
 			},
 			{
 				text: 'Components',
+				collapsed: false,
 				items: [
 					{
 						text: 'MdInput',
@@ -32,6 +33,7 @@ export default defineConfig({
 			},
 			{
 				text: 'Composables',
+				collapsed: false,
 				items: [
 					{ text: 'useMdInput', link: '/composables/useMdInput' },
 					{ text: 'useMdForm', link: '/composables/useMdForm' },

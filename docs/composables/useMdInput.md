@@ -1,6 +1,6 @@
 # useMdInput
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+This composable provides a unified interface for working with custom input components (MdInput, MdSelect, MdSelectMenu, MdInputMenu, etc.) in a Vue 3 application. It handles getting, setting, resetting, and validating input values — including special handling for date pickers and select menus — while integrating with the [robust-validator](https://validator.axe-api.com/) library for rule-based validation.
 
 ## Get
 

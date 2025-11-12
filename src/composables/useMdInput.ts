@@ -110,11 +110,14 @@ export default function (mdInput: MdInputInterface | Ref<MdInputInterface>['valu
 		)
 
 		if (mdInput['formField']) {
-			mdInput['formField']['error'] = result.isInvalid
-				? result.errors[fieldName]
-						?.map((error: any) => mdInput.validations?.messages[error.rule])
-						.join(', ')
-				: undefined
+			const errors =
+				result.errors[fieldName]
+					?.map((error: any) => mdInput.validations?.messages[error.rule])
+					.filter((error) => error) ?? []
+
+			const errorMessage = errors.length > 1 ? errors[0] : errors.join(',')
+
+			mdInput['formField']['error'] = result.isInvalid ? errorMessage : undefined
 		}
 
 		return result

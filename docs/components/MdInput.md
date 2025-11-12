@@ -1,21 +1,14 @@
 # MdInput
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+No description
 
-## Syntax Highlighting
+## Base Props
 
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
-
-**Input**
-
-````md
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-````
+| Prop             |      Required      |   Default   |   Type    | Description |
+| ---------------- | :----------------: | :---------: | :-------: | :---------: |
+| formField        | :white_check_mark: |             | `boolean` |             |
+| grid             |        :x:         | `col-md-12` | `string`  |             |
+| hidden           |        :x:         |   `false`   | `boolean` |             |
+| nullInUndefined  |        :x:         |             | `boolean` |             |
+| validateOnChange |        :x:         |             | `boolean` |             |
+| validations      |        :x:         |             | `boolean` |             |

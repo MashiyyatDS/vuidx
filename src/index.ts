@@ -36,7 +36,6 @@ export default {
 		app.component('MdBreadcrumb', MdBreadcrumb)
 		app.component('MdApp', MdApp)
 		app.component('VdxTable', () => import('./components/VdxTable.vue'))
-
 		app.use(ui)
 
 		if (options?.rules) {
