@@ -17,6 +17,12 @@
 		<template #prepend-action="company">
 			<UButton icon="mdi-info" @click="console.log(company)" />
 		</template>
+
+		<template #expanded="{ item }">
+			<small class="text-green-400">
+				<pre>{{ item }}</pre>
+			</small>
+		</template>
 	</VdxTable>
 </template>
 
@@ -53,6 +59,7 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 			ui: {
 				td: 'sm:p-2 p-2',
 			},
+			expanded: true,
 		},
 	},
 })

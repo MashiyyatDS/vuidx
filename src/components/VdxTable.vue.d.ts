@@ -7,9 +7,17 @@ interface VdxTableInterface<M = string> {
 	columns: TableColumn<any>[]
 	attributes?: {
 		card?: CardProps
-		table?: TableProps | Record<string, any>
+		table?: TableProps & Record<string, any>
 	}
 	modal?: MdModalInterface
+	expandable?: boolean
+	actions?:
+		| {
+				create?: boolean
+				update?: boolean
+				delete?: boolean
+		  }
+		| 'no-actions'
 }
 
 type VdxTableSlot<M> = {
@@ -19,6 +27,7 @@ type VdxTableSlot<M> = {
 	'prepend-footer': (items: M[]) => void
 	'append-action': (props: { item: M | unknown }) => void
 	'prepend-action': (props: { item: M | unknown }) => void
+	expanded: (props: { item: M | unknown }) => void
 	items: (props: { items: M[] }) => any
 } & { [K in keyof M as `vdx-${string & K}-cell`]?: (props: { item: M }) => void } & {
 	[key: `vdx-${string}-cell`]: (props: { item: M }) => void

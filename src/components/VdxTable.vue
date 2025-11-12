@@ -4,9 +4,17 @@
 			<UButton icon="mdi-plus" />
 		</template>
 
-		<UTable :data="items" v-bind="dataTable.attributes?.table" :columns="columns">
+		<UTable
+			:data="items"
+			v-bind="dataTable.attributes?.table"
+			:columns="columns"
+			v-model:expanded="expandedRow">
 			<template v-for="slotColumn in slotColumns" #[`${slotColumn}`]="{ row }">
 				<slot :name="slotColumn" v-bind="{ item: row.original }" />
+			</template>
+
+			<template #expanded="{ row }">
+				<slot name="expanded" v-bind="{ item: row.original }" />
 			</template>
 
 			<template #actions-cell="{ row }">
@@ -42,9 +50,35 @@ const slotColumns = computed(() =>
 		.map((col: any) => `${col.accessorKey}-cell`)
 ) as ComputedRef<`vdx-${Extract<keyof M, string>}-cell`[]>
 
+const UButton = resolveComponent('UButton')
+const expandedRow = ref()
 const columns = computed((): TableColumn<unknown, unknown>[] => [
+	...(dataTable.value?.attributes?.table?.expanded
+		? [
+				{
+					id: 'expand',
+					cell: ({ row }) =>
+						h(UButton, {
+							color: 'neutral',
+							variant: 'ghost',
+							icon: 'i-lucide-chevron-down',
+							square: true,
+							'aria-label': 'Expand',
+							ui: {
+								leadingIcon: [
+									'transition-transform',
+									row.getIsExpanded() ? 'duration-200 rotate-180' : '',
+								],
+							},
+							onClick: () => row.toggleExpanded(),
+						}),
+				},
+		  ]
+		: []),
 	...dataTable.value.columns,
-	{ accessorKey: 'actions', header: 'Actions' },
+	...(dataTable.value.actions !== 'no-actions'
+		? [{ accessorKey: 'actions', header: 'Actions' }]
+		: []),
 ])
 
 defineSlots<VdxTableSlot<M>>()
