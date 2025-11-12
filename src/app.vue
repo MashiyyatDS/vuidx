@@ -4,6 +4,7 @@
 			<UDashboardSidebar
 				collapsible
 				mode="slideover"
+				:min-size="300"
 				:ui="{ body: 'sm:p-2 p-2', header: 'border-b border-default' }">
 				<template #header>
 					<span>Header</span>
