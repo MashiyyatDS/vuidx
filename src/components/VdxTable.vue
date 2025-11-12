@@ -2,10 +2,12 @@
 	<UCard v-bind="dataTable.attributes?.card">
 		<template #header>
 			<UButton icon="mdi-plus" />
+			<UButton icon="mdi-refresh" @click="fetchData()" />
 		</template>
 
 		<UTable
-			:data="items"
+			:loading="loading"
+			:data="data"
 			v-bind="dataTable.attributes?.table"
 			:columns="columns"
 			v-model:expanded="expandedRow">
@@ -34,8 +36,6 @@
 			<UPagination v-model:page="page" :total="100" />
 		</template>
 	</UCard>
-
-	<slot name="items" v-bind="{ items }" />
 </template>
 
 <script setup lang="ts" generic="M extends Record<string, any>">
@@ -50,8 +50,8 @@ const slotColumns = computed(() =>
 		.map((col: any) => `${col.accessorKey}-cell`)
 ) as ComputedRef<`vdx-${Extract<keyof M, string>}-cell`[]>
 
-const UButton = resolveComponent('UButton')
 const expandedRow = ref()
+const UButton = resolveComponent('UButton')
 const columns = computed((): TableColumn<unknown, unknown>[] => [
 	...(dataTable.value?.attributes?.table?.expanded
 		? [
@@ -62,7 +62,6 @@ const columns = computed((): TableColumn<unknown, unknown>[] => [
 							color: 'neutral',
 							variant: 'ghost',
 							icon: 'i-lucide-chevron-down',
-							square: true,
 							'aria-label': 'Expand',
 							ui: {
 								leadingIcon: [
@@ -76,7 +75,7 @@ const columns = computed((): TableColumn<unknown, unknown>[] => [
 		  ]
 		: []),
 	...dataTable.value.columns,
-	...(dataTable.value.actions !== 'no-actions'
+	...(dataTable.value?.actions !== 'no-actions'
 		? [{ accessorKey: 'actions', header: 'Actions' }]
 		: []),
 ])
@@ -84,16 +83,30 @@ const columns = computed((): TableColumn<unknown, unknown>[] => [
 defineSlots<VdxTableSlot<M>>()
 
 const page = ref(5)
-const items = ref([])
+//const asyncData = () => {
+//	const loading = ref(false)
+//	const data = ref([])
+//	const fetchData = async () => {
+//		data.value = []
+//		loading.value = true
 
-const getData = async () => {
-	const responseJson = await fetch('https://retoolapi.dev/VJ3ZG3/data')
-	const responseData = await responseJson.json()
+//		const responseJson = await fetch('https://retoolapi.dev/VJ3ZG3/data')
 
-	items.value = responseData
-}
+//		const responseData = await responseJson.json()
 
-defineExpose({ items })
+//		data.value = responseData
 
-onMounted(() => getData())
+//		loading.value = false
+
+//		return responseData
+//	}
+
+//	watchEffect(async () => await fetchData())
+
+//	return { loading, data, fetchData }
+//}
+
+//const { data, fetchData, loading } = asyncData()
+
+const { data, loading, fetchData } = dataTable.value.paginationProvider()
 </script>

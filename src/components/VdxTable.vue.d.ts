@@ -1,6 +1,17 @@
 import type { CardProps, TableProps } from '@nuxt/ui'
 import type { MdModalInterface } from './MdModal.vue'
 
+//type PaginationParams = {
+//	url: string
+//}
+
+type PaginationReturn<M> = {
+	loading: Ref<boolean>
+	data: M extends string ? Ref<any[]> : Ref<M[]>
+	fetchData: () => PaginationReturn
+}
+type PaginationProvider<M = string> = () => PaginationReturn<M>
+
 interface VdxTableInterface<M = string> {
 	title?: string
 	items?: M[]
@@ -11,6 +22,7 @@ interface VdxTableInterface<M = string> {
 	}
 	modal?: MdModalInterface
 	expandable?: boolean
+	paginationProvider: PaginationProvider
 	actions?:
 		| {
 				create?: boolean

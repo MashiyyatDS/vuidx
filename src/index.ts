@@ -53,5 +53,3 @@ export type * from './components/MdInput.vue.d.ts'
 export type * from './components/MdForm.vue.d.ts'
 export type * from './components/MdModal.vue.d.ts'
 export * from './composables'
-
-export { MdForm, MdInput, MdBreadcrumb, MdModal }

@@ -37,6 +37,29 @@ interface Company {
 	rating: any
 }
 
+const paginationProvider = () => {
+	const loading = ref(false)
+	const data = ref([])
+
+	const fetchData = async () => {
+		data.value = []
+		loading.value = true
+
+		const responseJson = await fetch('https://retoolapi.dev/VJ3ZG3/data')
+		const responseData = await responseJson.json()
+
+		data.value = responseData
+
+		loading.value = false
+
+		return responseData
+	}
+
+	watchEffect(async () => await fetchData())
+
+	return { loading, data, fetchData }
+}
+
 const dataTable = reactive<VdxTableInterface<Company>>({
 	title: 'Sample Table',
 	columns: [
@@ -62,6 +85,7 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 			expanded: true,
 		},
 	},
+	paginationProvider,
 })
 
 const modalParams: MdModalInterface = reactive({
