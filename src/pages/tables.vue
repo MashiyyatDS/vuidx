@@ -1,17 +1,17 @@
 <template>
 	<VdxTable :data-table="dataTable" ref="vxTableRef">
-		<template #vdx-name-cell="row">
+		<template #vdx-name-cell="{ item }">
 			<UButton
-				:label="row.name"
-				@click="useMdModal(modalParams).openModal(saveCompany, row)" />
+				:label="item.name"
+				@click="useMdModal(modalParams).openModal(saveCompany, item)" />
 		</template>
 
-		<template #vdx-image-cell="row">
-			<UAvatar class="rounded-none squircle" :src="row.image" />
+		<template #vdx-image-cell="{ item }">
+			<UAvatar class="rounded-none squircle" :src="item.image" />
 		</template>
 
-		<template #vdx-select-cell="row">
-			<!--<UCheckboxGroup v-model="selectedCompanies" :default-value="row" />-->
+		<template #vdx-select-cell="{ item }">
+			<UCheckboxGroup v-model="selectedCompanies" :items="[item.name]" />
 		</template>
 
 		<template #prepend-action="company">
@@ -100,6 +100,8 @@ const modalParams: MdModalInterface = reactive({
 const saveCompany = (company: Company) => {
 	console.log(company)
 }
+
+const selectedCompanies = ref([])
 
 const vxTableRef = useTemplateRef('vxTableRef')
 </script>

@@ -6,17 +6,19 @@
 
 		<UTable :data="items" v-bind="dataTable.attributes?.table" :columns="columns">
 			<template v-for="slotColumn in slotColumns" #[`${slotColumn}`]="{ row }">
-				<slot :name="slotColumn" v-bind="row.original" />
+				<slot :name="slotColumn" v-bind="{ item: row.original }" />
 			</template>
 
 			<template #actions-cell="{ row }">
-				<slot name="prepend-action" v-bind="row.original" />
+				<div class="flex gap-1">
+					<slot name="prepend-action" v-bind="{ item: row.original }" />
 
-				<UButton icon="mdi-edit" @click="console.log(row.original)" />
+					<UButton icon="mdi-edit" @click="console.log(row.original)" />
 
-				<UButton icon="mdi-delete" @click="console.log(row.original)" />
+					<UButton icon="mdi-delete" @click="console.log(row.original)" />
 
-				<slot name="append-action" v-bind="row.original" />
+					<slot name="append-action" v-bind="{ item: row.original }" />
+				</div>
 			</template>
 		</UTable>
 
@@ -25,7 +27,7 @@
 		</template>
 	</UCard>
 
-	<slot name="items" v-bind="items" />
+	<slot name="items" v-bind="{ items }" />
 </template>
 
 <script setup lang="ts" generic="M extends Record<string, any>">

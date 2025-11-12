@@ -17,11 +17,11 @@ type VdxTableSlot<M> = {
 	'prepend-header': (items: M[]) => void
 	'append-footer': (items: M[]) => void
 	'prepend-footer': (items: M[]) => void
-	'append-action': (item: M) => void
-	'prepend-action': (item: M) => void
-	items: (items: M[]) => any
-} & { [K in keyof M as `vdx-${string & K}-cell`]?: (item: M) => void } & {
-	[key: `vdx-${string}-cell`]: (item: M) => void
+	'append-action': (props: { item: M | unknown }) => void
+	'prepend-action': (props: { item: M | unknown }) => void
+	items: (props: { items: M[] }) => any
+} & { [K in keyof M as `vdx-${string & K}-cell`]?: (props: { item: M }) => void } & {
+	[key: `vdx-${string}-cell`]: (props: { item: M }) => void
 }
 
 export type { VdxTableInterface, VdxTableSlot }
