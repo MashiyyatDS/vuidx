@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import path from 'path'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -26,8 +27,32 @@ export default defineConfig({
 					{
 						text: 'MdInput',
 						link: '/components/MdInput',
+						collapsed: true,
+						items: [
+							{ text: 'Input', link: '/components/MdForm' },
+							{ text: 'InputMenu', link: '/components/MdForm' },
+							{ text: 'Select', link: '/components/VdxTable' },
+							{ text: 'Textarea', link: '/components/VdxTable' },
+							{ text: 'Checkbox', link: '/components/VdxTable' },
+							{ text: 'CheckboxGroup', link: '/components/VdxTable' },
+							{ text: 'RadioGroup', link: '/components/VdxTable' },
+							{ text: 'Select', link: '/components/VdxTable' },
+							{ text: 'SelectMenu', link: '/components/VdxTable' },
+							{ text: 'DatePicker', link: '/components/VdxTable' },
+							{ text: 'PinInput', link: '/components/VdxTable' },
+						],
 					},
-					{ text: 'MdForm', link: '/components/MdForm' },
+					{
+						text: 'MdForm',
+						link: '/components/MdForm',
+						collapsed: true,
+						items: [
+							{ text: 'Fields', link: '/components/MdForm' },
+							{ text: 'Forms', link: '/components/MdForm' },
+							{ text: 'Collections', link: '/components/MdForm' },
+							{ text: 'Stepper', link: '/components/MdForm' },
+						],
+					},
 					{ text: 'VdxTable', link: '/components/VdxTable' },
 				],
 			},
@@ -46,5 +71,13 @@ export default defineConfig({
 		],
 
 		socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+	},
+	vite: {
+		resolve: {
+			alias: {
+				'@': path.resolve(__dirname, '../../src'),
+				'~': path.resolve(__dirname, '../../src'),
+			},
+		},
 	},
 })

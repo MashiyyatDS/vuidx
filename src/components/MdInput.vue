@@ -1,39 +1,43 @@
 <template>
-  <div v-if="!input.hidden" :class="[input?.grid ?? 'col-span-12']">
-    <UFormField v-bind="input.formField">
-      <MdInputDefault :input="input" v-if="input.type === 'default'" />
+	<div v-if="!input.hidden" :class="[input?.grid ?? 'col-span-12']">
+		<UFormField v-bind="input.formField">
+			<MdInputDefault :input="input" v-if="input.type === 'default'" />
 
-      <MdTextarea :textarea="input" v-if="input.type === 'textarea'" />
+			<MdTextarea :textarea="input" v-if="input.type === 'textarea'" />
 
-      <MdSwitch :input="input" v-if="input.type === 'switch'" v-model="input.value" />
+			<MdSwitch :input="input" v-if="input.type === 'switch'" v-model="input.value" />
 
-      <MdPinInput :pin-input="input" v-if="input.type === 'pin-input'" v-model="input.value" />
+			<MdPinInput
+				:pin-input="input"
+				v-if="input.type === 'pin-input'"
+				v-model="input.value" />
 
-      <MdInputNumber :input="input" v-if="input.type === 'input-number'" v-model="input.value" />
+			<MdInputNumber
+				:input="input"
+				v-if="input.type === 'input-number'"
+				v-model="input.value" />
 
-      <MdCheckbox :checkbox="input" v-if="input.type === 'checkbox'" v-model="input.value" />
+			<MdCheckbox :checkbox="input" v-if="input.type === 'checkbox'" v-model="input.value" />
 
-      <MdCheckboxGroup
-        :checkbox-group="input"
-        v-if="input.type === 'checkbox-group'"
-        v-model="input.value"
-      />
+			<MdCheckboxGroup
+				:checkbox-group="input"
+				v-if="input.type === 'checkbox-group'"
+				v-model="input.value" />
 
-      <MdRadioGroup
-        :radio-group="input"
-        v-if="input.type === 'radio-group'"
-        v-model="input.value"
-      />
+			<MdRadioGroup
+				:radio-group="input"
+				v-if="input.type === 'radio-group'"
+				v-model="input.value" />
 
-      <MdDatepicker :datepicker="input" v-if="input.type === 'datepicker'" />
+			<MdDatepicker :datepicker="input" v-if="input.type === 'datepicker'" />
 
-      <MdSelect v-if="input.type === 'select'" :select="input" ref="itemsRef" />
+			<MdSelect v-if="input.type === 'select'" :select="input" ref="itemsRef" />
 
-      <MdSelectMenu :select-menu="input" v-if="input.type === 'select-menu'" ref="itemsRef" />
+			<MdSelectMenu :select-menu="input" v-if="input.type === 'select-menu'" ref="itemsRef" />
 
-      <MdInputMenu :input-menu="input" v-if="input.type === 'input-menu'" ref="itemsRef" />
-    </UFormField>
-  </div>
+			<MdInputMenu :input-menu="input" v-if="input.type === 'input-menu'" ref="itemsRef" />
+		</UFormField>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -53,21 +57,21 @@ import MdInputMenu from './InputTypes/MdInputMenu.vue'
 import { computed, defineExpose, useTemplateRef, defineModel } from 'vue'
 
 const input = defineModel<MdInputInterface>('input', {
-  required: true,
+	required: true,
 })
 
 const hasItems = computed(
-  () =>
-    input.value.type === 'input-menu' ||
-    input.value.type === 'select-menu' ||
-    input.value.type === 'select'
+	() =>
+		input.value.type === 'input-menu' ||
+		input.value.type === 'select-menu' ||
+		input.value.type === 'select'
 )
 
 const itemsRef = useTemplateRef('itemsRef')
 const inputValue = computed(() => input.value.value)
 
 defineExpose({
-  value: inputValue,
-  ...(hasItems.value && { items: itemsRef }),
+	value: inputValue,
+	...(hasItems.value && { items: itemsRef }),
 })
 </script>
