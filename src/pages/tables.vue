@@ -10,10 +10,6 @@
 			<UAvatar class="rounded-none squircle" :src="item.image" />
 		</template>
 
-		<template #vdx-select-cell="{ item }">
-			<UCheckboxGroup v-model="selectedCompanies" :items="[item.name]" />
-		</template>
-
 		<template #prepend-action="{ item }">
 			<UButton icon="mdi-info" @click="console.log(item)" />
 		</template>
@@ -63,8 +59,7 @@ const paginationProvider = <M>() => {
 const dataTable = reactive<VdxTableInterface<Company>>({
 	title: 'Sample Table',
 	columns: [
-		{ accessorKey: 'vdx-select', header: 'Select' },
-		{ accessorKey: 'id' },
+		{ accessorKey: 'id', header: 'ID' },
 		{ accessorKey: 'vdx-image', header: 'Image' },
 		{ accessorKey: 'vdx-name', header: 'Company Name' },
 		{ accessorKey: 'rating' },
@@ -75,7 +70,7 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 				body: 'sm:p-0 p-0',
 				header: 'sm:p-3 p-3',
 				footer: 'sm:p-3 p-3 flex justify-center',
-				root: 'm-3',
+				root: 'max-w-[900px]',
 			},
 		},
 		table: {
@@ -131,8 +126,6 @@ const modalParams: MdModalInterface = reactive({
 const saveCompany = (company: Company) => {
 	console.log(company)
 }
-
-const selectedCompanies = ref([])
 
 const vxTableRef = useTemplateRef('vxTableRef')
 </script>

@@ -1,10 +1,30 @@
 <template>
 	<MdApp>
-		<div class="flex justify-center">
-			<UNavigationMenu :items="items" variant="link" />
-		</div>
+		<UDashboardGroup>
+			<UDashboardSidebar
+				collapsible
+				mode="slideover"
+				:ui="{ body: 'sm:p-2 p-2', header: 'border-b border-default' }">
+				<template #header>
+					<span>Header</span>
+				</template>
+				<template #default>
+					<UNavigationMenu :items="items" orientation="vertical" />
+				</template>
+			</UDashboardSidebar>
 
-		<router-view />
+			<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 overflow-auto flex' }">
+				<template #header>
+					<UDashboardNavbar title="Vuidx" />
+				</template>
+
+				<template #body>
+					<div class="h-full p-3">
+						<router-view />
+					</div>
+				</template>
+			</UDashboardPanel>
+		</UDashboardGroup>
 	</MdApp>
 </template>
 
