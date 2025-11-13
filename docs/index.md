@@ -8,17 +8,17 @@ hero:
     tagline: My great project tagline
     actions:
         - theme: brand
-          text: Markdown Examples
+          text: Get Started
           link: /markdown-examples
         - theme: alt
-          text: API Examples
-          link: /api-examples
+          text: Installation
+          link: /components
 
 features:
-    - title: Feature A
+    - title: Recursive Components
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature B
+    - title: Composables
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature C
+    - title: Robust Validation
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---

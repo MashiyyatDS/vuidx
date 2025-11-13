@@ -75,6 +75,24 @@ const form: MdFormInterface = reactive({
 				},
 			},
 		},
+		active: {
+			type: 'checkbox',
+			attributes: {
+				class: 'w-full',
+				icon: 'mdi-edit',
+			},
+			formField: {
+				label: 'Sample Checkbox',
+				description: 'This is a sample description',
+			},
+			grid: 'col-span-12',
+			validations: {
+				rules: 'required',
+				messages: {
+					required: 'This checkbox field is required',
+				},
+			},
+		},
 	},
 })
 </script>
