@@ -7,38 +7,38 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue').EffectScope
-  const avatarGroupInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js').avatarGroupInjectionKey
+  const avatarGroupInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js').avatarGroupInjectionKey
   const computed: typeof import('vue').computed
   const createApp: typeof import('vue').createApp
   const customRef: typeof import('vue').customRef
   const defineAsyncComponent: typeof import('vue').defineAsyncComponent
   const defineComponent: typeof import('vue').defineComponent
-  const defineLocale: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js').defineLocale
-  const defineShortcuts: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js').defineShortcuts
+  const defineLocale: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js').defineLocale
+  const defineShortcuts: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js').defineShortcuts
   const effectScope: typeof import('vue').effectScope
-  const extendLocale: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js').extendLocale
-  const extractShortcuts: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js').extractShortcuts
-  const fieldGroupInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js').fieldGroupInjectionKey
-  const formBusInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formBusInjectionKey
-  const formErrorsInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formErrorsInjectionKey
-  const formFieldInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formFieldInjectionKey
-  const formInputsInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formInputsInjectionKey
-  const formLoadingInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formLoadingInjectionKey
-  const formOptionsInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formOptionsInjectionKey
-  const formStateInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formStateInjectionKey
+  const extendLocale: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js').extendLocale
+  const extractShortcuts: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js').extractShortcuts
+  const fieldGroupInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js').fieldGroupInjectionKey
+  const formBusInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formBusInjectionKey
+  const formErrorsInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formErrorsInjectionKey
+  const formFieldInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formFieldInjectionKey
+  const formInputsInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formInputsInjectionKey
+  const formLoadingInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formLoadingInjectionKey
+  const formOptionsInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formOptionsInjectionKey
+  const formStateInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').formStateInjectionKey
   const getCurrentInstance: typeof import('vue').getCurrentInstance
   const getCurrentScope: typeof import('vue').getCurrentScope
   const getCurrentWatcher: typeof import('vue').getCurrentWatcher
   const h: typeof import('vue').h
   const inject: typeof import('vue').inject
-  const inputIdInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').inputIdInjectionKey
+  const inputIdInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').inputIdInjectionKey
   const isProxy: typeof import('vue').isProxy
   const isReactive: typeof import('vue').isReactive
   const isReadonly: typeof import('vue').isReadonly
   const isRef: typeof import('vue').isRef
   const isShallow: typeof import('vue').isShallow
-  const kbdKeysMap: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js').kbdKeysMap
-  const localeContextInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js').localeContextInjectionKey
+  const kbdKeysMap: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js').kbdKeysMap
+  const localeContextInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js').localeContextInjectionKey
   const markRaw: typeof import('vue').markRaw
   const nextTick: typeof import('vue').nextTick
   const onActivated: typeof import('vue').onActivated
@@ -57,7 +57,7 @@ declare global {
   const onUnmounted: typeof import('vue').onUnmounted
   const onUpdated: typeof import('vue').onUpdated
   const onWatcherCleanup: typeof import('vue').onWatcherCleanup
-  const portalTargetInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js').portalTargetInjectionKey
+  const portalTargetInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js').portalTargetInjectionKey
   const provide: typeof import('vue').provide
   const reactive: typeof import('vue').reactive
   const readonly: typeof import('vue').readonly
@@ -70,33 +70,33 @@ declare global {
   const toRef: typeof import('vue').toRef
   const toRefs: typeof import('vue').toRefs
   const toValue: typeof import('vue').toValue
-  const toastMaxInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js').toastMaxInjectionKey
+  const toastMaxInjectionKey: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js').toastMaxInjectionKey
   const triggerRef: typeof import('vue').triggerRef
   const unref: typeof import('vue').unref
-  const useAppConfig: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/vue/composables/useAppConfig.js').useAppConfig
+  const useAppConfig: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/vue/composables/useAppConfig.js').useAppConfig
   const useAttrs: typeof import('vue').useAttrs
-  const useAvatarGroup: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js').useAvatarGroup
-  const useComponentIcons: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.js').useComponentIcons
-  const useContentSearch: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useContentSearch.js').useContentSearch
+  const useAvatarGroup: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js').useAvatarGroup
+  const useComponentIcons: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.js').useComponentIcons
+  const useContentSearch: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useContentSearch.js').useContentSearch
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
-  const useFieldGroup: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js').useFieldGroup
-  const useFileUpload: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.js').useFileUpload
-  const useFormField: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').useFormField
+  const useFieldGroup: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js').useFieldGroup
+  const useFileUpload: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.js').useFileUpload
+  const useFormField: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js').useFormField
   const useId: typeof import('vue').useId
-  const useKbd: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js').useKbd
+  const useKbd: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js').useKbd
   const useLink: typeof import('vue-router').useLink
-  const useLocale: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js').useLocale
+  const useLocale: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js').useLocale
   const useModel: typeof import('vue').useModel
-  const useOverlay: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.js').useOverlay
-  const usePortal: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js').usePortal
-  const useResizable: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.js').useResizable
+  const useOverlay: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.js').useOverlay
+  const usePortal: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js').usePortal
+  const useResizable: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.js').useResizable
   const useRoute: typeof import('vue-router').useRoute
   const useRouter: typeof import('vue-router').useRouter
-  const useScrollspy: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useScrollspy.js').useScrollspy
+  const useScrollspy: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useScrollspy.js').useScrollspy
   const useSlots: typeof import('vue').useSlots
   const useTemplateRef: typeof import('vue').useTemplateRef
-  const useToast: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js').useToast
+  const useToast: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js').useToast
   const watch: typeof import('vue').watch
   const watchEffect: typeof import('vue').watchEffect
   const watchPostEffect: typeof import('vue').watchPostEffect
@@ -108,26 +108,26 @@ declare global {
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, ShallowRef, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
-  export type { ShortcutConfig, ShortcutsConfig, ShortcutsOptions } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.d')
+  export type { ShortcutConfig, ShortcutsConfig, ShortcutsOptions } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.d')
   // @ts-ignore
-  export type { UseComponentIconsProps } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.d')
+  export type { UseComponentIconsProps } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.d')
   // @ts-ignore
-  export type { UseFileUploadOptions } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.d')
+  export type { UseFileUploadOptions } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.d')
   // @ts-ignore
-  export type { KbdKey, KbdKeySpecific } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.d')
+  export type { KbdKey, KbdKeySpecific } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.d')
   // @ts-ignore
-  export type { OverlayOptions, Overlay } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.d')
+  export type { OverlayOptions, Overlay } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.d')
   // @ts-ignore
-  export type { UseResizableProps, UseResizableReturn } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.d')
+  export type { UseResizableProps, UseResizableReturn } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.d')
   // @ts-ignore
-  export type { Toast } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useToast.d'
-  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useToast.d')
+  export type { Toast } from './node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useToast.d'
+  import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useToast.d')
 }
 
 // for vue template auto import
@@ -136,38 +136,38 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
-    readonly avatarGroupInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js')['avatarGroupInjectionKey']>
+    readonly avatarGroupInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js')['avatarGroupInjectionKey']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
-    readonly defineLocale: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js')['defineLocale']>
-    readonly defineShortcuts: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js')['defineShortcuts']>
+    readonly defineLocale: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js')['defineLocale']>
+    readonly defineShortcuts: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js')['defineShortcuts']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
-    readonly extendLocale: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js')['extendLocale']>
-    readonly extractShortcuts: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js')['extractShortcuts']>
-    readonly fieldGroupInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js')['fieldGroupInjectionKey']>
-    readonly formBusInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formBusInjectionKey']>
-    readonly formErrorsInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formErrorsInjectionKey']>
-    readonly formFieldInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formFieldInjectionKey']>
-    readonly formInputsInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formInputsInjectionKey']>
-    readonly formLoadingInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formLoadingInjectionKey']>
-    readonly formOptionsInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formOptionsInjectionKey']>
-    readonly formStateInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formStateInjectionKey']>
+    readonly extendLocale: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale.js')['extendLocale']>
+    readonly extractShortcuts: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts.js')['extractShortcuts']>
+    readonly fieldGroupInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js')['fieldGroupInjectionKey']>
+    readonly formBusInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formBusInjectionKey']>
+    readonly formErrorsInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formErrorsInjectionKey']>
+    readonly formFieldInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formFieldInjectionKey']>
+    readonly formInputsInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formInputsInjectionKey']>
+    readonly formLoadingInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formLoadingInjectionKey']>
+    readonly formOptionsInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formOptionsInjectionKey']>
+    readonly formStateInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['formStateInjectionKey']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getCurrentWatcher: UnwrapRef<typeof import('vue')['getCurrentWatcher']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
-    readonly inputIdInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['inputIdInjectionKey']>
+    readonly inputIdInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['inputIdInjectionKey']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isShallow: UnwrapRef<typeof import('vue')['isShallow']>
-    readonly kbdKeysMap: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js')['kbdKeysMap']>
-    readonly localeContextInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js')['localeContextInjectionKey']>
+    readonly kbdKeysMap: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js')['kbdKeysMap']>
+    readonly localeContextInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js')['localeContextInjectionKey']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
@@ -186,7 +186,7 @@ declare module 'vue' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
-    readonly portalTargetInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js')['portalTargetInjectionKey']>
+    readonly portalTargetInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js')['portalTargetInjectionKey']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
@@ -199,33 +199,33 @@ declare module 'vue' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
-    readonly toastMaxInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js')['toastMaxInjectionKey']>
+    readonly toastMaxInjectionKey: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js')['toastMaxInjectionKey']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
-    readonly useAppConfig: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/vue/composables/useAppConfig.js')['useAppConfig']>
+    readonly useAppConfig: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/vue/composables/useAppConfig.js')['useAppConfig']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
-    readonly useAvatarGroup: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js')['useAvatarGroup']>
-    readonly useComponentIcons: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.js')['useComponentIcons']>
-    readonly useContentSearch: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useContentSearch.js')['useContentSearch']>
+    readonly useAvatarGroup: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useAvatarGroup.js')['useAvatarGroup']>
+    readonly useComponentIcons: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useComponentIcons.js')['useComponentIcons']>
+    readonly useContentSearch: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useContentSearch.js')['useContentSearch']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useFieldGroup: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js')['useFieldGroup']>
-    readonly useFileUpload: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.js')['useFileUpload']>
-    readonly useFormField: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['useFormField']>
+    readonly useFieldGroup: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFieldGroup.js')['useFieldGroup']>
+    readonly useFileUpload: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFileUpload.js')['useFileUpload']>
+    readonly useFormField: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useFormField.js')['useFormField']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
-    readonly useKbd: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js')['useKbd']>
+    readonly useKbd: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useKbd.js')['useKbd']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
-    readonly useLocale: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js')['useLocale']>
+    readonly useLocale: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useLocale.js')['useLocale']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
-    readonly useOverlay: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.js')['useOverlay']>
-    readonly usePortal: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js')['usePortal']>
-    readonly useResizable: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.js')['useResizable']>
+    readonly useOverlay: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useOverlay.js')['useOverlay']>
+    readonly usePortal: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/usePortal.js')['usePortal']>
+    readonly useResizable: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useResizable.js')['useResizable']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
-    readonly useScrollspy: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useScrollspy.js')['useScrollspy']>
+    readonly useScrollspy: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useScrollspy.js')['useScrollspy']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
-    readonly useToast: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_1ba3f07730bf69e4cc53aa935afb49b9/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js')['useToast']>
+    readonly useToast: UnwrapRef<typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/composables/useToast.js')['useToast']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>

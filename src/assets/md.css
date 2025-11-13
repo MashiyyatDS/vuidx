@@ -1,2 +1,27 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(39, 39, 39, 0.3);
+	background-color: #f5f5f5;
+	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	background-color: #f5f5f5;
+	display: none;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(39, 39, 39, 0.3);
+	background-color: rgba(39, 39, 39, 0.3);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(39, 39, 39, 0.3);
+	background-color: rgba(39, 39, 39, 0.3);
+}

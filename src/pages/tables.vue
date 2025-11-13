@@ -70,7 +70,6 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 				body: 'sm:p-0 p-0',
 				header: 'sm:p-3 p-3',
 				footer: 'sm:p-3 p-3 flex justify-center',
-				root: 'max-w-[900px]',
 			},
 		},
 		table: {

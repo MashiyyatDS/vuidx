@@ -2,21 +2,29 @@
 	<MdApp>
 		<UDashboardGroup>
 			<UDashboardSidebar
-				collapsible
-				mode="slideover"
-				:min-size="300"
-				:ui="{ body: 'sm:p-2 p-2', header: 'border-b border-default' }">
+				class="w-[350px]"
+				:ui="{ body: 'sm:p-2 p-2 border-y border-default' }">
 				<template #header>
-					<span>Header</span>
+					<span>Vuidx</span>
 				</template>
+
 				<template #default>
-					<UNavigationMenu :items="items" orientation="vertical" />
+					<NavigationMenu orientation="vertical" />
+				</template>
+
+				<template #footer>
+					<UButton label="Footer" block />
 				</template>
 			</UDashboardSidebar>
 
-			<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 overflow-auto flex' }">
+			<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 flex' }">
 				<template #header>
-					<UDashboardNavbar title="Vuidx" />
+					<UDashboardNavbar>
+						<template #right>
+							<UButton icon="mdi-chat" variant="link" />
+							<UButton icon="mdi-notifications" variant="link" />
+						</template>
+					</UDashboardNavbar>
 				</template>
 
 				<template #body>
@@ -30,12 +38,7 @@
 </template>
 
 <script setup lang="ts">
-const items = ref([
-	{ label: 'Home', icon: 'mdi-home', to: '/' },
-	{ label: 'Fields', icon: 'mdi-edit', to: '/fields' },
-	{ label: 'Forms', icon: 'mdi-home', to: '/forms' },
-	{ label: 'Collections', icon: 'mdi-note', to: '/collections' },
-	{ label: 'Tables', icon: 'mdi-table', to: '/tables' },
-	{ label: 'Modals', icon: 'mdi-window', to: '/modals' },
-])
+const drawer = ref(false)
+
+watch(useRouter().currentRoute, () => (drawer.value = false))
 </script>
