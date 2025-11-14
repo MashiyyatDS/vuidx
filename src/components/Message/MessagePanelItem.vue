@@ -24,13 +24,13 @@
 					icon="mdi-minimize"
 					variant="link"
 					class="cursor-pointer"
-					@click="minimizePanel()" />
+					@click="messageStore().minimizePanel(messagePanelItem)" />
 
 				<UButton
 					icon="mdi-close"
 					variant="link"
 					class="cursor-pointer"
-					@click="messagePanelItem.closed = true" />
+					@click="messageStore().closePanel(messagePanelItem)" />
 			</div>
 		</template>
 
@@ -60,23 +60,9 @@
 </template>
 
 <script setup lang="ts">
-interface MessagePanelItem {
-	minimized: boolean
-	closed: boolean
-	user: {
-		name: string
-		image: string
-	}
-	messages?: string[]
-	updated_at: number
-}
+import messageStore, { type MessagePanelItem } from '@/stores/messageStore'
 
 const messagePanelItem = defineModel<MessagePanelItem>('messagePanelItem', { required: true })
-
-const minimizePanel = () => {
-	messagePanelItem.value.updated_at = Date.now()
-	messagePanelItem.value.minimized = true
-}
 
 const messages = ref([])
 </script>
