@@ -31,6 +31,11 @@ const routes: RouteRecordRaw[] = [
 		component: () => import('@/pages/modals.vue'),
 		name: 'modals-page',
 	},
+	{
+		path: '/login',
+		component: () => import('@/pages/login.vue'),
+		name: 'login-page',
+	},
 ]
 
 const router = createRouter({

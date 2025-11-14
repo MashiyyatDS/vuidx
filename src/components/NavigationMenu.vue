@@ -10,17 +10,22 @@ const items = ref<NavigationMenuItem[][]>([
 		{ label: 'Home', icon: 'mdi-home', to: '/' },
 		{ label: 'Timekeeper', icon: 'mdi-clock', to: '/' },
 	],
-	//[
-	//	{
-	//		label: 'Components',
-	//		type: 'label',
-	//	},
-	//	{ label: 'Fields', icon: 'mdi-edit', to: '/fields' },
-	//	{ label: 'Forms', icon: 'mdi-home', to: '/forms' },
-	//	{ label: 'Collections', icon: 'mdi-note', to: '/collections' },
-	//	{ label: 'Tables', icon: 'mdi-table', to: '/tables' },
-	//	{ label: 'Modals', icon: 'mdi-window', to: '/modals' },
-	//],
+	[
+		{
+			label: 'Branches',
+			type: 'label',
+		},
+		{
+			label: 'Manage Branch',
+			description: 'Fully styled and customizable components for Nuxt.',
+			icon: 'material-symbols:handshake-rounded',
+		},
+		{
+			label: 'Branch Groups',
+			description: 'Fully styled and customizable components for Nuxt.',
+			icon: 'material-symbols:handshake-rounded',
+		},
+	],
 	[
 		{
 			label: 'Inventory',
@@ -28,18 +33,18 @@ const items = ref<NavigationMenuItem[][]>([
 		},
 		{
 			label: 'Manage Inventory',
-			icon: 'i-lucide-book-open',
+			icon: 'material-symbols:inventory-2',
 			defaultOpen: true,
 			children: [
 				{
 					label: 'Stock Management',
 					description: 'Fully styled and customizable components for Nuxt.',
-					icon: 'i-lucide-house',
+					icon: 'material-symbols:inventory-2',
 				},
 				{
 					label: 'Inventory Transfer',
 					description: 'Fully styled and customizable components for Nuxt.',
-					icon: 'i-lucide-house',
+					icon: 'mdi:truck-delivery',
 				},
 				{
 					label: 'Inventory Adjustment',
@@ -49,7 +54,7 @@ const items = ref<NavigationMenuItem[][]>([
 				{
 					label: 'Pull out requests',
 					description: 'Learn how to install and configure Nuxt UI in your application.',
-					icon: 'i-lucide-cloud-download',
+					icon: 'hugeicons:delivery-return-02',
 				},
 				{
 					label: 'Forecasting',
@@ -139,6 +144,11 @@ const items = ref<NavigationMenuItem[][]>([
 			icon: 'bxs:purchase-tag',
 		},
 		{
+			label: 'Payment Methods',
+			description: 'Fully styled and customizable components for Nuxt.',
+			icon: 'material-symbols:credit-card',
+		},
+		{
 			label: 'Configurations',
 			description: 'Learn how to install and configure Nuxt UI in your application.',
 			icon: 'mdi-cog',
@@ -225,6 +235,39 @@ const items = ref<NavigationMenuItem[][]>([
 			label: 'Back Pay',
 			description: 'Fully styled and customizable components for Nuxt.',
 			icon: 'mdi:bank-transfer',
+		},
+	],
+	[
+		{
+			label: 'Settings',
+			type: 'label',
+		},
+		{
+			label: 'Labels',
+			description: 'Fully styled and customizable components for Nuxt.',
+			icon: 'material-symbols:bookmark',
+		},
+		{
+			label: 'Themes',
+			description: 'Fully styled and customizable components for Nuxt.',
+			icon: 'streamline-plump:paint-palette-solid',
+		},
+		{
+			label: 'Account settings',
+			description: 'Fully styled and customizable components for Nuxt.',
+			icon: 'material-symbols:manage-accounts',
+			children: [
+				{
+					label: 'Personal Information',
+					description: 'Fully styled and customizable components for Nuxt.',
+					icon: 'material-symbols:inbox-text-person-sharp',
+				},
+				{
+					label: 'Email and Password',
+					description: 'Fully styled and customizable components for Nuxt.',
+					icon: 'material-symbols:inbox-text-person-sharp',
+				},
+			],
 		},
 	],
 	[

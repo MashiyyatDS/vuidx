@@ -3,7 +3,7 @@
 		<UDashboardGroup>
 			<UDashboardSidebar
 				class="w-[350px]"
-				:ui="{ body: 'sm:p-2 p-2 border-y border-default' }">
+				:ui="{ body: 'sm:p-2 p-2 border-y border-default', header: 'h-12' }">
 				<template #header>
 					<span>Vuidx</span>
 				</template>
@@ -13,13 +13,13 @@
 				</template>
 
 				<template #footer>
-					<UButton label="Footer" block />
+					<UButton label="Logout" block class="cursor-pointer" />
 				</template>
 			</UDashboardSidebar>
 
 			<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 flex' }">
 				<template #header>
-					<UDashboardNavbar>
+					<UDashboardNavbar :ui="{ root: 'h-12' }">
 						<template #right>
 							<UButton icon="mdi-chat" variant="link" />
 							<UButton icon="mdi-notifications" variant="link" />

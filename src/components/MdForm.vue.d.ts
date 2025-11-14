@@ -10,6 +10,7 @@ interface MdFormProps {
 interface MdFormSlots {
 	header: () => void
 	actions: () => void
+	body: () => void
 	default: (props: { getValue: () => any }) => void
 	'trailing-header': () => void
 }
