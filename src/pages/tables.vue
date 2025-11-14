@@ -1,7 +1,7 @@
 <template>
-	<UTabs :items="tabs" class="w-full">
+	<UTabs :items="tabs">
 		<template #content="{ item }">
-			<VdxTable :data-table="{ ...dataTable, title: item.label }" ref="vxTableRef">
+			<VdxTable :data-table="{ ...dataTable, title: item.label }">
 				<template #vdx-name-cell="{ item }">
 					<UButton
 						:label="item.name"
@@ -236,5 +236,4 @@ const tabs = ref<TabsItem[]>([
 		content: 'This is the password content.',
 	},
 ])
-const vxTableRef = useTemplateRef('vxTableRef')
 </script>
