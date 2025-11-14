@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 
 export interface MessagePanelItem {
 	minimized: boolean
-	active: boolean
 	closed: boolean
 	user: {
 		id: number
@@ -18,9 +17,8 @@ const messageStore = defineStore(
 	() => {
 		const messages = ref<MessagePanelItem[]>([
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 1,
 					name: 'Mashiyyat Delos Santos',
@@ -30,9 +28,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 2,
 					name: 'Merry Grace Managuit',
@@ -42,9 +39,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 3,
 					name: 'Krishna Delos Santos',
@@ -54,9 +50,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 4,
 					name: 'Romain Hamel',
@@ -66,9 +61,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 5,
 					name: 'Sébastien Chopin',
@@ -78,9 +72,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 6,
 					name: 'Hugo Richard',
@@ -90,9 +83,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 7,
 					name: 'Sandro Circi',
@@ -102,9 +94,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 8,
 					name: 'Daniel Roe',
@@ -114,9 +105,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 9,
 					name: 'Jakub Michálek',
@@ -126,9 +116,8 @@ const messageStore = defineStore(
 				updated_at: Date.now(),
 			},
 			{
-				closed: false,
+				closed: true,
 				minimized: false,
-				active: false,
 				user: {
 					id: 10,
 					name: 'Eugen Istoc',
@@ -140,31 +129,22 @@ const messageStore = defineStore(
 		])
 
 		const openPanel = (message: MessagePanelItem) => {
-			message.active = true
 			message.minimized = false
 			message.closed = false
 			message.updated_at = Date.now()
 		}
 
 		const closePanel = (message: MessagePanelItem) => {
-			message.active = false
 			message.minimized = false
-			message.closed = false
+			message.closed = true
 			message.updated_at = Date.now()
 		}
 
 		const minimizePanel = (message: MessagePanelItem) => {
-			message.active = false
 			message.minimized = true
 			message.closed = false
 			message.updated_at = Date.now()
 		}
-
-		const messagesVisibility = computed(() => messages.value.map((msg) => msg.active))
-
-		watch(messagesVisibility, () => {
-			console.log('Visibility Updated')
-		})
 
 		return {
 			messages,

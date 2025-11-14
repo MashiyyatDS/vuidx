@@ -4,7 +4,7 @@
 			root: 'w-[400px] rounded-t rounded-b-none hidden md:block lg:block',
 			header: 'sm:p-2 p-2 flex justify-between',
 			body: 'sm:p-2 p-2 h-[400px] overflow-auto',
-			footer: 'sm:p-2 p-2 flex gap-1',
+			footer: 'sm:p-2 p-2 flex gap-1 transition transform ease-out duration-300',
 		}">
 		<template #header>
 			<div class="flex gap-3">

@@ -3,19 +3,27 @@
 		<transition-group v-bind="transitionAttr">
 			<MessagePanelItem
 				:message-panel-item="messagePanelItem"
-				v-for="(messagePanelItem, key) in activePanels"
+				v-for="messagePanelItem in activePanels"
 				:key="`message-${messagePanelItem.user.id}`" />
 		</transition-group>
 
 		<div class="flex flex-col self-end mx-2 my-5 gap-2">
 			<transition-group v-bind="transitionAttr">
-				<UAvatar
-					v-for="(widget, key) in activeWidgets"
-					:key="key"
-					:src="widget.user.image"
-					class="cursor-pointer hover:scale-100"
-					@click="messageStore().openPanel(widget)"
-					size="3xl" />
+				<div class="relative" v-for="widget in activeWidgets" :key="widget.user.id">
+					<UButton
+						icon="mdi-close"
+						class="absolute -right-2.5 -top-2.5 rounded-full cursor-pointer z-1"
+						variant="solid"
+						color="error"
+						@click="messageStore().closePanel(widget)"
+						size="xs" />
+
+					<UAvatar
+						:src="widget.user.image"
+						class="cursor-pointer hover:scale-100"
+						@click="messageStore().openPanel(widget)"
+						size="3xl" />
+				</div>
 			</transition-group>
 		</div>
 	</div>
@@ -26,7 +34,7 @@ import messageStore from '@/stores/messageStore'
 
 const activePanels = computed(() =>
 	messageStore()
-		.messages.filter((msgI) => !msgI.closed && !msgI.minimized && msgI.active)
+		.messages.filter((msgI) => !msgI.closed && !msgI.minimized)
 		.sort((a, b) => b.updated_at - a.updated_at)
 )
 
