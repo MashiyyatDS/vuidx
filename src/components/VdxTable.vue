@@ -1,8 +1,19 @@
 <template>
 	<UCard v-bind="dataTable.attributes?.card">
 		<template #header>
-			<UButton icon="mdi-plus" />
-			<UButton icon="mdi-refresh" @click="fetchData()" />
+			<div class="flex justify-between">
+				<span class="font-semibold mr-5 text-lg">{{ dataTable?.title }}</span>
+
+				<div class="flex gap-1">
+					<UButton icon="mdi-plus" class="cursor-pointer" />
+
+					<UButton icon="mdi-refresh" @click="fetchData()" class="cursor-pointer" />
+
+					<UButton icon="mdi-download" class="cursor-pointer" />
+
+					<VdxTableFilters :filters="dataTable.filters" />
+				</div>
+			</div>
 		</template>
 
 		<UTable

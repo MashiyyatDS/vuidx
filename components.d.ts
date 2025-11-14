@@ -70,8 +70,10 @@ declare module 'vue' {
     USlideover: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Slideover.vue')['default']
     USwitch: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Switch.vue')['default']
     UTable: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Table.vue')['default']
+    UTabs: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Tabs.vue')['default']
     UTextarea: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Textarea.vue')['default']
     VdxTable: typeof import('./src/components/VdxTable.vue')['default']
+    VdxTableFilters: typeof import('./src/components/VdxTableFilters.vue')['default']
   }
 }
 
@@ -135,6 +137,8 @@ declare global {
   const USlideover: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Slideover.vue')['default']
   const USwitch: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Switch.vue')['default']
   const UTable: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Table.vue')['default']
+  const UTabs: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Tabs.vue')['default']
   const UTextarea: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e42835acb440950fc99a5a0d74449b6c/node_modules/@nuxt/ui/dist/runtime/components/Textarea.vue')['default']
   const VdxTable: typeof import('./src/components/VdxTable.vue')['default']
+  const VdxTableFilters: typeof import('./src/components/VdxTableFilters.vue')['default']
 }

@@ -1,30 +1,36 @@
 <template>
-	<VdxTable :data-table="dataTable" ref="vxTableRef">
-		<template #vdx-name-cell="{ item }">
-			<UButton
-				:label="item.name"
-				@click="useMdModal(modalParams).openModal(saveCompany, item)" />
-		</template>
+	<UTabs :items="tabs" class="w-full">
+		<template #content="{ item }">
+			<VdxTable :data-table="{ ...dataTable, title: item.label }" ref="vxTableRef">
+				<template #vdx-name-cell="{ item }">
+					<UButton
+						:label="item.name"
+						@click="useMdModal(modalParams).openModal(saveCompany, item)" />
+				</template>
 
-		<template #vdx-image-cell="{ item }">
-			<UAvatar class="rounded-none squircle" :src="item.image" />
-		</template>
+				<template #vdx-image-cell="{ item }">
+					<UAvatar class="rounded-none squircle" :src="item.image" />
+				</template>
 
-		<template #prepend-action="{ item }">
-			<UButton icon="mdi-info" @click="console.log(item)" />
-		</template>
+				<template #prepend-action="{ item }">
+					<UButton icon="mdi-info" @click="console.log(item)" />
+				</template>
 
-		<template #expanded="{ item }">
-			<small class="text-green-400">
-				<pre>{{ item }}</pre>
-			</small>
+				<template #expanded="{ item }">
+					<small class="text-green-400">
+						<pre>{{ item }}</pre>
+					</small>
+				</template>
+			</VdxTable>
 		</template>
-	</VdxTable>
+	</UTabs>
 </template>
 
 <script setup lang="ts">
 import type { VdxTableInterface } from '@/components/VdxTable.vue.d.ts'
 import { useMdModal, type MdModalInterface } from '../index'
+
+import type { TabsItem } from '@nuxt/ui'
 
 interface Company {
 	id: number
@@ -56,6 +62,13 @@ const paginationProvider = <M>() => {
 	return { loading, data, fetchData }
 }
 
+const getCompanies = async () => {
+	const responseJson = await fetch('https://retoolapi.dev/6uAp5X/data')
+	const data = await responseJson.json()
+
+	return { data }
+}
+
 const dataTable = reactive<VdxTableInterface<Company>>({
 	title: 'Sample Table',
 	columns: [
@@ -80,6 +93,91 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 		},
 	},
 	paginationProvider,
+	filters: {
+		form: {
+			attributes: {
+				ui: {
+					header: 'sm:p-1 p-1',
+					body: 'sm:p-1 p-1',
+					root: 'rounded-sm bg-neutral',
+				},
+				variant: 'solid',
+			},
+			fields: {
+				email: {
+					type: 'default',
+					formField: {
+						label: 'Email Address',
+						class: 'mb-1',
+						description: 'Filter by email address.',
+					},
+					grid: 'col-span-12',
+					attributes: {
+						placeholder: 'Enter your Email Address.',
+						class: 'w-full',
+						icon: 'mdi-email',
+					},
+					validateOnChange: true,
+					validations: {
+						rules: 'required|min:2|email',
+						messages: {
+							required: 'This field is required',
+							email: 'Please provide a valid email address',
+						},
+					},
+				},
+				company: {
+					type: 'select',
+					formField: {
+						label: 'Select Company',
+						class: 'mb-1',
+						description: 'Filter by companies',
+					},
+					attributes: {
+						class: 'w-full',
+						labelKey: 'name',
+						valueKey: 'id',
+						placeholder: 'Select Company',
+						icon: 'mdi-edit',
+					},
+					grid: 'col-span-12',
+					itemsProvider: {
+						definedKey: 'id',
+						definedValue: 'name',
+						type: 'api',
+						api: {
+							handler: getCompanies,
+						},
+					},
+				},
+				proficiency: {
+					type: 'select',
+					grid: 'col-span-12',
+					attributes: {
+						placeholder: 'Proficiency',
+						class: 'w-full',
+						icon: 'mdi-edit',
+					},
+					formField: {
+						label: 'Proficiency',
+						description: 'Filter by proficiency.',
+						class: 'mb-1',
+					},
+					validations: {
+						rules: 'required',
+						messages: {
+							required: 'Proficiency field is required',
+						},
+					},
+					itemsProvider: {
+						type: 'default',
+						items: ['Student', 'Beginner', 'Advanced', 'Expert'],
+					},
+				},
+			},
+		},
+		dateRange: true,
+	},
 })
 
 const modalParams: MdModalInterface = reactive({
@@ -126,5 +224,17 @@ const saveCompany = (company: Company) => {
 	console.log(company)
 }
 
+const tabs = ref<TabsItem[]>([
+	{
+		label: 'Companies',
+		icon: 'i-lucide-user',
+		content: 'This is the account content.',
+	},
+	{
+		label: 'Users',
+		icon: 'i-lucide-lock',
+		content: 'This is the password content.',
+	},
+])
 const vxTableRef = useTemplateRef('vxTableRef')
 </script>

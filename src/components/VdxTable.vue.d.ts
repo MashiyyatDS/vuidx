@@ -1,5 +1,6 @@
 import type { CardProps, TableProps } from '@nuxt/ui'
 import type { MdModalInterface } from './MdModal.vue'
+import type { MdFormInterface } from './MdForm.vue'
 
 type PaginationReturn<M> = {
 	loading: Ref<boolean>
@@ -26,6 +27,10 @@ interface VdxTableInterface<M = string> {
 				delete?: boolean
 		  }
 		| 'no-actions'
+	filters?: {
+		dateRange?: boolean
+		form?: MdFormInterface
+	}
 }
 
 type VdxTableSlot<M> = {
