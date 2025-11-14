@@ -31,6 +31,11 @@
 
 								<template #content>
 									<UPageList>
+										<div
+											class="flex flex-col justify-center p-3 border-b border-default">
+											<span class="text-md font-semibold">Messages</span>
+										</div>
+
 										<UPageCard
 											v-for="(user, index) in users"
 											:key="index"
@@ -67,6 +72,8 @@
 				</template>
 			</UDashboardPanel>
 		</UDashboardGroup>
+
+		<MessagePanel />
 	</MdApp>
 </template>
 
@@ -156,4 +163,12 @@ const users = ref([
 		},
 	},
 ])
+
+const messages = ref([
+	{
+		message: 'No message',
+	},
+])
+
+provide('messages', messages)
 </script>
