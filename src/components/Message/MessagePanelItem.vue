@@ -11,8 +11,8 @@
 				<UAvatar :src="messagePanelItem.user.image" />
 
 				<span class="self-center font-semibold text-sm">
-					{{ messagePanelItem.user.name }}</span
-				>
+					{{ messagePanelItem.user.name }}
+				</span>
 			</div>
 
 			<div class="flex gap-1">
@@ -34,7 +34,7 @@
 			</div>
 		</template>
 
-		<UChatMessages :messages="messages" />
+		<UChatMessages :messages="messages" :status="prompting ? 'submitted' : 'ready'" />
 
 		<UEmpty
 			v-if="!messages.length"
@@ -49,20 +49,57 @@
 
 			<UTextarea
 				placeholder="Enter message here."
+				@keyup.enter="sendMessage"
+				v-model="message"
 				class="w-full"
 				autoresize
 				:rows="1"
 				:maxrows="1" />
 
-			<UButton icon="mdi-send" variant="link" class="cursor-pointer" />
+			<UButton icon="mdi-send" variant="link" class="cursor-pointer" @click="sendMessage" />
 		</template>
 	</UCard>
 </template>
 
 <script setup lang="ts">
 import messageStore, { type MessagePanelItem } from '@/stores/messageStore'
+import { GoogleGenAI } from '@google/genai'
+
+const ai = new GoogleGenAI({
+	apiKey: 'AIzaSyDOVzVi2ErYA2x-1hJF92RkwS1Sid2lbyk',
+})
 
 const messagePanelItem = defineModel<MessagePanelItem>('messagePanelItem', { required: true })
 
-const messages = ref([])
+const messages = ref<any[]>([])
+const message = ref('')
+
+const prompting = ref(false)
+const sendMessage = async () => {
+	prompting.value = true
+
+	messages.value.push({
+		id: `${Date.now()}`,
+		role: 'user',
+		parts: [{ type: 'text', id: `${Date.now()}`, text: message.value }],
+		ui: {
+			container: 'p-0',
+		},
+	})
+	const msgString = JSON.stringify(message.value)
+	message.value = ''
+
+	const response = await ai.models.generateContent({
+		model: 'gemini-2.5-flash',
+		contents: msgString,
+	})
+
+	prompting.value = false
+
+	messages.value.push({
+		id: response.responseId,
+		role: 'assistant',
+		parts: [{ type: 'text', text: response.text ?? '' }],
+	})
+}
 </script>
