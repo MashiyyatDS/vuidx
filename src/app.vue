@@ -35,7 +35,11 @@
 </template>
 
 <script setup lang="ts">
+import { themeStore } from '@/stores/themeStore'
+
 const drawer = ref(false)
 
 watch(useRouter().currentRoute, () => (drawer.value = false))
+
+onBeforeMount(() => themeStore().initThemes())
 </script>

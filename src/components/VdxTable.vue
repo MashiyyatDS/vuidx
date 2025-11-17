@@ -8,6 +8,7 @@
 					<UButton
 						icon="mdi-plus"
 						class="cursor-pointer"
+						@click="useMdModal(dataTable.modal).openModal(createItem)"
 						v-if="dataTable?.actions?.create !== false" />
 
 					<UButton icon="mdi-refresh" @click="fetchData()" class="cursor-pointer" />
@@ -39,7 +40,7 @@
 
 					<UButton
 						icon="mdi-edit"
-						@click="showConfirmation(true, getRowData(row))"
+						@click="useMdModal(dataTable.modal).openModal(updateItem, getRowData(row))"
 						v-if="dataTable?.actions?.update !== false" />
 
 					<UButton
@@ -60,10 +61,10 @@
 
 <script setup lang="ts" generic="M extends Record<string, any>">
 import type { VdxTableInterface, VdxTableSlot } from './VdxTable.vue.d.ts'
-import type { Row } from '@tanstack/vue-table'
-import type { TableColumn } from '@nuxt/ui'
-import type { ComputedRef } from 'vue'
 import useMdConfirm from '@/composables/useMdConfirm.ts'
+import useMdModal from '@/composables/useMdModal.ts'
+import type { Row } from '@tanstack/vue-table'
+import type { ComputedRef } from 'vue'
 
 /**
  * Defined Slots
@@ -78,7 +79,7 @@ const dataTable = defineModel<VdxTableInterface<M>>('data-table', { required: tr
 /**
  * Computed columns
  */
-const columns = computed((): TableColumn<unknown, unknown>[] => [
+const columns: any = computed(() => [
 	...(dataTable.value?.attributes?.table?.expanded
 		? [
 				{
@@ -150,7 +151,7 @@ const showConfirmation = (onUpdate: boolean, item: M) => {
 				},
 				confirm: {
 					class: 'cursor-pointer',
-					label: 'Delete',
+					label: onUpdate ? 'Update' : 'Delete',
 					block: true,
 				},
 				modal: {
@@ -186,6 +187,15 @@ const showConfirmation = (onUpdate: boolean, item: M) => {
 		}
 	)
 }
+
+const createItem = (payload: M) => {
+	console.log('CREATE THIS', payload)
+}
+
+const updateItem = (payload: M) => {
+	showConfirmation(true, payload)
+}
+
 /**
  * Defined Exposed data
  */
