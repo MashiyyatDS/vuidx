@@ -78,10 +78,4 @@ const resetFilters = () => {
 
 	if (filters.value?.form) useMdForm(filters.value.form).reset()
 }
-
-//const filterFormData = computed(() =>
-//	filters.value?.form
-//		? { ...useMdForm(filters.value.form).get(), timeStamp: modelValue.value }
-//		: { timeStamp: modelValue.value }
-//)
 </script>

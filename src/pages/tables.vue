@@ -32,7 +32,6 @@
 import type { VdxTableInterface } from '@/components/VdxTable.vue.d.ts'
 import { useMdModal, type MdModalInterface } from '../index'
 import useMdConfirm from '@/composables/useMdConfirm'
-
 import type { TabsItem } from '@nuxt/ui'
 
 interface Company {
@@ -180,6 +179,11 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 			},
 		},
 		dateRange: true,
+	},
+	actions: {
+		//delete: false,
+		//create: false	,
+		//update: false,
 	},
 })
 

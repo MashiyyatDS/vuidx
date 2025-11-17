@@ -20,13 +20,12 @@ interface VdxTableInterface<M = string> {
 	modal?: MdModalInterface
 	expandable?: boolean
 	paginationProvider: PaginationProvider<M>
-	actions?:
-		| {
-				create?: boolean
-				update?: boolean
-				delete?: boolean
-		  }
-		| 'no-actions'
+	actions?: {
+		create?: boolean
+		update?: boolean
+		delete?: boolean
+		'no-actions'?: boolean
+	}
 	filters?: {
 		dateRange?: boolean
 		form?: MdFormInterface

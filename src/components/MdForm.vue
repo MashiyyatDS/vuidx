@@ -36,7 +36,6 @@
 <script setup lang="ts">
 import type { MdFormInterface, MdFormSlots, MdFormProps } from './MdForm.vue.d.ts'
 import MdFormCollection from './MdFormCollection/MdFormCollection.vue'
-import { defineModel, defineProps, defineSlots } from 'vue'
 import MdInput from './MdInput.vue'
 
 defineSlots<MdFormSlots>()

@@ -17,7 +17,6 @@ import type { MdModalInterface } from './MdModal.vue.d.ts'
 import useMdForm from '../composables/useMdForm.ts'
 import MdForm from '../components/MdForm.vue'
 import useMdModal from '../composables/useMdModal.ts'
-import { defineModel } from 'vue'
 
 const callback = defineModel<(payload: any) => void>('callback', { required: true })
 

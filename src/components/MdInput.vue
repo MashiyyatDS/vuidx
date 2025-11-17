@@ -54,7 +54,7 @@ import MdDatepicker from './InputTypes/MdDatepicker.vue'
 import MdSelect from './InputTypes/MdSelect.vue'
 import MdSelectMenu from './InputTypes/MdSelectMenu.vue'
 import MdInputMenu from './InputTypes/MdInputMenu.vue'
-import { computed, defineExpose, useTemplateRef, defineModel } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 
 const input = defineModel<MdInputInterface>('input', {
 	required: true,

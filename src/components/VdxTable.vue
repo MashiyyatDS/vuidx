@@ -5,7 +5,10 @@
 				<span class="font-semibold mr-5 text-lg">{{ dataTable?.title }}</span>
 
 				<div class="flex gap-1">
-					<UButton icon="mdi-plus" class="cursor-pointer" />
+					<UButton
+						icon="mdi-plus"
+						class="cursor-pointer"
+						v-if="dataTable?.actions?.create !== false" />
 
 					<UButton icon="mdi-refresh" @click="fetchData()" class="cursor-pointer" />
 
@@ -34,9 +37,15 @@
 				<div class="flex gap-1">
 					<slot name="prepend-action" v-bind="{ item: getRowData(row) }" />
 
-					<UButton icon="mdi-edit" @click="showConfirmation(true, getRowData(row))" />
+					<UButton
+						icon="mdi-edit"
+						@click="showConfirmation(true, getRowData(row))"
+						v-if="dataTable?.actions?.update !== false" />
 
-					<UButton icon="mdi-delete" @click="showConfirmation(false, getRowData(row))" />
+					<UButton
+						icon="mdi-delete"
+						@click="showConfirmation(false, getRowData(row))"
+						v-if="dataTable?.actions?.delete !== false" />
 
 					<slot name="append-action" v-bind="{ item: getRowData(row) }" />
 				</div>
@@ -93,7 +102,7 @@ const columns = computed((): TableColumn<unknown, unknown>[] => [
 		  ]
 		: []),
 	...dataTable.value.columns,
-	...(dataTable.value?.actions !== 'no-actions'
+	...(dataTable.value?.actions?.['no-actions'] !== true
 		? [{ accessorKey: 'actions', header: 'Actions' }]
 		: []),
 ])
