@@ -1,4 +1,6 @@
 <template>
+	<UButton label="Open Confirm" @click="openConfirm" />
+
 	<UTabs :items="tabs">
 		<template #content="{ item }">
 			<VdxTable :data-table="{ ...dataTable, title: item.label }">
@@ -29,6 +31,7 @@
 <script setup lang="ts">
 import type { VdxTableInterface } from '@/components/VdxTable.vue.d.ts'
 import { useMdModal, type MdModalInterface } from '../index'
+import useMdConfirm from '@/composables/useMdConfirm'
 
 import type { TabsItem } from '@nuxt/ui'
 
@@ -236,4 +239,66 @@ const tabs = ref<TabsItem[]>([
 		content: 'This is the password content.',
 	},
 ])
+
+const toast = useToast()
+function openConfirm() {
+	useMdConfirm(
+		{
+			attributes: {
+				body: {
+					title: 'Mashiyyat Delos Santos',
+					description: 'Incoming call from Mashiyyat Delos Santos',
+					class: 'w-full bg-neutral',
+					avatar: {
+						src: 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png',
+						alt: 'MD',
+						size: '2xl',
+					},
+					ui: {
+						root: 'text-center',
+						body: 'sm:p-0',
+					},
+					variant: 'soft',
+				},
+				cancel: {
+					color: 'error',
+					class: 'rounded-full cursor-pointer',
+					icon: 'mdi:phone-hangup',
+					size: 'xl',
+				},
+				confirm: {
+					color: 'success',
+					class: 'rounded-full cursor-pointer',
+					icon: 'material-symbols:call',
+					size: 'xl',
+				},
+				modal: {
+					title: 'Confirmation',
+					description: 'Sample Description',
+					ui: {
+						footer: 'flex justify-center gap-8 px-5',
+						header: 'sm:p-3 p-3 hidden',
+						body: 'sm:p-1 p-1 border-none',
+						content: 'w-[400px]',
+					},
+					dismissible: false,
+				},
+			},
+		},
+		{
+			onCancel: (overlay) => {
+				overlay.close()
+			},
+			onConfirm: (overlay) => {
+				overlay.close()
+
+				toast.add({
+					title: 'Confirmation Success',
+					description: `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`,
+					duration: 1500,
+				})
+			},
+		}
+	)
+}
 </script>
