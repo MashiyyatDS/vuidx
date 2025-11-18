@@ -59,13 +59,6 @@ const useMdField = (mdForm: MdFormInterface, fieldKey: string): UseMdFieldReturn
 			const formData = useMdField(possibleForm, nestedKeys.join('.')).getField()
 
 			data = formData ?? data
-			//for (const nestedKey of nestedKeys) {
-			//	const formData = useMdField(possibleForm, nestedKeys.join('.')).getField()
-
-			//	console.log(formData)
-
-			//	data = formData ?? data
-			//}
 		}
 
 		const possibleCollection = mdForm?.collections?.[`${initialKey}`]

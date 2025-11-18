@@ -4,9 +4,9 @@
 	<div class="grid grid-cols-12 gap-1">
 		<div class="col-span-2" v-for="(colorMode, key) in colorModes" :key="key">
 			<UButton
-				@click="themeStore().setColorMode(colorMode)"
+				@click="themeStore().setColorMode(key)"
 				block
-				:label="colorMode"
+				:label="convertStringCases(key).regular"
 				:class="`border cursor-pointer ${colorMode}`" />
 		</div>
 	</div>
@@ -25,26 +25,27 @@
 
 <script setup lang="ts">
 import { themeStore } from '@/stores/themeStore'
+import { convertStringCases } from '@/utils'
 
 const grayModes = ref(['slate', 'zinc', 'neutral', 'stone'])
 
-const colorModes = ref([
-	'bg-red-400',
-	'bg-orange-400',
-	'bg-amber-400',
-	'bg-yellow-400',
-	'bg-lime-400',
-	'bg-green-400',
-	'bg-emerald-400',
-	'bg-teal-400',
-	'bg-cyan-400',
-	'bg-sky-400',
-	'bg-blue-400',
-	'bg-indigo-400',
-	'bg-violet-400',
-	'bg-purple-400',
-	'bg-fuchsia-400',
-	'bg-pink-400',
-	'bg-rose-400',
-])
+const colorModes = reactive({
+	red: 'bg-red-400',
+	orange: 'bg-orange-400',
+	amber: 'bg-amber-400',
+	yellow: 'bg-yellow-400',
+	lime: 'bg-lime-400',
+	green: 'bg-green-400',
+	emerald: 'bg-emerald-400',
+	teal: 'bg-teal-400',
+	cyan: 'bg-cyan-400',
+	sky: 'bg-sky-400',
+	blue: 'bg-blue-400',
+	indigo: 'bg-indigo-400',
+	violet: 'bg-violet-400',
+	purple: 'bg-purple-400',
+	fuchsia: 'bg-fuchsia-400',
+	pink: 'bg-pink-400',
+	rose: 'bg-rose-400',
+})
 </script>

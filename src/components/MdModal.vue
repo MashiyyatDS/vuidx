@@ -14,9 +14,9 @@
 
 <script setup lang="ts">
 import type { MdModalInterface } from './MdModal.vue.d.ts'
+import useMdModal from '../composables/useMdModal.ts'
 import useMdForm from '../composables/useMdForm.ts'
 import MdForm from '../components/MdForm.vue'
-import useMdModal from '../composables/useMdModal.ts'
 
 const callback = defineModel<(payload: any) => void>('callback', { required: true })
 
@@ -29,7 +29,10 @@ const submitModal = async () => {
 
 	if (!formValidated) return
 
-	callback.value(formData)
+	callback.value({
+		...formData,
+		...modal.value.defaultValue,
+	})
 
 	useMdModal(modal.value).closeModal()
 }

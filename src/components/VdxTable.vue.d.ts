@@ -2,6 +2,14 @@ import type { CardProps, TableProps } from '@nuxt/ui'
 import type { MdModalInterface } from './MdModal.vue.d.ts'
 import type { MdFormInterface } from './MdForm.vue.d.ts'
 import type { TableColumn } from '@nuxt/ui'
+import type { ButtonProps } from '@nuxt/ui/runtime/components/Button.vue.js'
+
+type VdxTableActions = {
+	create?: boolean
+	update?: boolean
+	delete?: boolean
+	'no-actions'?: boolean
+}
 
 type VdxTableInterface<M = string> = {
 	title?: string
@@ -10,15 +18,12 @@ type VdxTableInterface<M = string> = {
 	attributes?: {
 		card?: CardProps
 		table?: TableProps & Record<string, any>
+		editButton?: ButtonProps
+		deleteButton?: ButtonProps
 	}
 	modal: MdModalInterface
 	expandable?: boolean
-	actions?: {
-		create?: boolean
-		update?: boolean
-		delete?: boolean
-		'no-actions'?: boolean
-	}
+	actions?: VdxTableActions
 	filters?: {
 		dateRange?: boolean
 		form?: MdFormInterface
@@ -41,4 +46,4 @@ type VdxTableSlot<M> = {
 	[key: `vdx-${string}-cell`]: (props: { item: M }) => void
 }
 
-export type { VdxTableInterface, VdxTableSlot }
+export type { VdxTableInterface, VdxTableSlot, VdxTableActions }

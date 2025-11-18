@@ -41,29 +41,6 @@ interface Company {
 	rating: any
 }
 
-const paginationProvider = <M>() => {
-	const loading = ref(false)
-	const data = ref<M[]>([])
-
-	const fetchData = async () => {
-		data.value = []
-		loading.value = true
-
-		const responseJson = await fetch('https://retoolapi.dev/VJ3ZG3/data')
-		const responseData = await responseJson.json()
-
-		data.value = responseData
-
-		loading.value = false
-
-		return responseData
-	}
-
-	watchEffect(async () => await fetchData())
-
-	return { loading, data, fetchData }
-}
-
 const getCompanies = async () => {
 	const responseJson = await fetch('https://retoolapi.dev/6uAp5X/data')
 	const data = await responseJson.json()
@@ -94,7 +71,6 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 			expanded: true,
 		},
 	},
-	paginationProvider,
 	filters: {
 		form: {
 			attributes: {
@@ -185,6 +161,10 @@ const dataTable = reactive<VdxTableInterface<Company>>({
 		//create: false	,
 		//update: false,
 	},
+	modal: {
+		form: {},
+	},
+	paginationUrl: 'https://retoolapi.dev/VJ3ZG3/data',
 })
 
 const modalParams: MdModalInterface = reactive({

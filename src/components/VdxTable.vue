@@ -41,13 +41,15 @@
 					<UButton
 						icon="mdi-edit"
 						@click="useMdModal(dataTable.modal).openModal(updateItem, getRowData(row))"
-						v-if="dataTable?.actions?.update !== false" />
+						v-if="dataTable?.actions?.update !== false"
+						v-bind="dataTable?.attributes?.editButton" />
 
 					<UButton
 						icon="mdi-delete"
 						:loading="isDeleting"
 						@click="showConfirmation(false, getRowData(row))"
-						v-if="dataTable?.actions?.delete !== false" />
+						v-if="dataTable?.actions?.delete !== false"
+						v-bind="dataTable?.attributes?.deleteButton" />
 
 					<slot name="append-action" v-bind="{ item: getRowData(row) }" />
 				</div>
@@ -187,24 +189,21 @@ const showConfirmation = (onUpdate: boolean, item: M) => {
 	)
 }
 
-const axiosInstance = axios.create({ baseURL: dataTable.value.paginationUrl })
-
-const paginationParams = reactive({
+const axiosInstance = axios.create({
 	params: {
-		_sort: 'id,-views',
 		_page: page.value,
-		_limit: 10,
+		_limit: 15,
 	},
+	baseURL: dataTable.value.paginationUrl,
 })
 
-const { isLoading, data, execute } = useAxios<M[]>('/', paginationParams, axiosInstance, {
+const { isLoading, data, execute } = useAxios<M[]>('/', axiosInstance, {
 	immediate: true,
 })
 
 const reloadItems = () =>
 	execute({
 		params: {
-			...paginationParams,
 			_page: page.value,
 		},
 	})
@@ -238,7 +237,10 @@ const { isLoading: isUpdating, execute: executeUpdate } = useAxios(
 	{ immediate: false }
 )
 const updateItem = async (payload: M) => {
-	await executeUpdate(`${dataTable.value.paginationUrl}/${payload.id}`, { data: payload })
+	const { data: response } = await executeUpdate(
+		`${dataTable.value.paginationUrl}/${payload.id}`,
+		{ data: payload }
+	)
 
 	toast.add({
 		icon: 'mdi-success',
@@ -248,7 +250,10 @@ const updateItem = async (payload: M) => {
 		duration: 1500,
 	})
 
-	reloadItems()
+	if (!data.value) return
+
+	const index = data.value.findIndex((item) => item.id === response.value.id)
+	if (data.value[index]) data.value[index] = response.value
 }
 
 const { isLoading: isDeleting, execute: executeDelete } = useAxios(
@@ -274,5 +279,5 @@ const deleteItem = async (payload: M) => {
 /**
  * Defined Exposed data
  */
-defineExpose({ data })
+defineExpose({ data, reloadItems })
 </script>

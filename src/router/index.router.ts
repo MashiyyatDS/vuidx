@@ -46,6 +46,16 @@ const routes: RouteRecordRaw[] = [
 		component: () => import('@/pages/themes.vue'),
 		name: 'themes-page',
 	},
+	{
+		path: '/manage-branches',
+		component: () => import('@/pages/manage-branches.vue'),
+		name: 'manage-branches-page',
+	},
+	{
+		path: '/roles',
+		component: () => import('@/pages/roles.vue'),
+		name: 'roles-page',
+	},
 ]
 
 const router = createRouter({

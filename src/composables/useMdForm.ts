@@ -174,7 +174,7 @@ const useMdForm = (mdForm: MdFormInterface): UseMdFormReturn => {
 		return results.every((result) => result.isValid)
 	}
 
-	const setErrors = (errors: any) => {
+	const setErrors = (errors: Record<string, any>) => {
 		if (mdForm?.fields) {
 			for (const [key, field] of Object.entries(mdForm.fields)) {
 				const errorData = errors[key]

@@ -1,7 +1,9 @@
 <template>
 	<VdxTable :data-table="usersTable" ref="usersTableRef">
 		<template #vdx-first_name-cell="{ item }">
-			<span>{{ [item.first_name, item.middle_name, item.last_name].join(' ') }}</span>
+			<span class="text-primary">
+				{{ [item.first_name, item.middle_name, item.last_name].join(' ') }}
+			</span>
 		</template>
 	</VdxTable>
 </template>

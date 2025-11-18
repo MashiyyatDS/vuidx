@@ -64,3 +64,35 @@ export function generateUniqueId(): string {
 
 	return randomPart.slice(0, 10 - timestamp.length) + timestamp
 }
+
+export function formatCases(input: string): {
+	camel: string
+	pascal: string
+	snake: string
+	kebab: string
+	constant: string
+	pascalSpaced: string
+} {
+	const words = input
+		.trim()
+		.replace(/[_\-]/g, ' ')
+		.replace(/([a-z])([A-Z])/g, '$1 $2')
+		.split(/\s+/)
+		.map((w) => w.toLowerCase())
+
+	const pascal = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('')
+	const camel = pascal.charAt(0).toLowerCase() + pascal.slice(1)
+	const snake = words.join('_')
+	const kebab = words.join('-')
+	const constant = words.join('_').toUpperCase()
+	const pascalSpaced = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+
+	return {
+		camel,
+		pascal,
+		snake,
+		kebab,
+		constant,
+		pascalSpaced,
+	}
+}

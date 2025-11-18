@@ -12,6 +12,7 @@ interface MdModalInterface {
 		cancel?: ButtonProps
 		previous?: ButtonProps
 	}
+	defaultValue?: Record<string, unknown>
 }
 
 export type { MdModalInterface }

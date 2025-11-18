@@ -15,9 +15,10 @@ const modulesStore = defineStore(
 					type: 'label',
 				},
 				{
-					label: 'Manage Branch',
+					label: 'Manage Branches',
 					description: 'Fully styled and customizable components for Nuxt.',
 					icon: 'material-symbols:handshake-rounded',
+					to: '/manage-branches',
 				},
 				{
 					label: 'Branch Groups',
@@ -181,6 +182,7 @@ const modulesStore = defineStore(
 					description: 'Fully styled and customizable components for Nuxt.',
 					icon: 'mdi-users',
 					children: [],
+					to: '/users',
 				},
 				{
 					label: 'Authorization and Access',
@@ -191,6 +193,7 @@ const modulesStore = defineStore(
 							label: 'Roles',
 							description: 'Fully styled and customizable components for Nuxt.',
 							icon: 'material-symbols:inbox-text-person-sharp',
+							to: '/roles',
 						},
 						{
 							label: 'Permissions',
@@ -256,6 +259,7 @@ const modulesStore = defineStore(
 					label: 'Themes',
 					description: 'Fully styled and customizable components for Nuxt.',
 					icon: 'streamline-plump:paint-palette-solid',
+					to: '/themes',
 				},
 				{
 					label: 'Account settings',
