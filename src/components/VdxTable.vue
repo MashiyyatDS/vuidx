@@ -11,7 +11,7 @@
 						@click="useMdModal(dataTable.modal).openModal(createItem)"
 						v-if="dataTable?.actions?.create !== false" />
 
-					<UButton icon="mdi-refresh" @click="fetchData()" class="cursor-pointer" />
+					<UButton icon="mdi-refresh" @click="reloadItems()" class="cursor-pointer" />
 
 					<UButton icon="mdi-download" class="cursor-pointer" />
 
@@ -22,7 +22,7 @@
 
 		<UTable
 			v-bind="dataTable.attributes?.table"
-			:loading="loading"
+			:loading="isLoading || isCreating || isUpdating"
 			:data="data"
 			:columns="columns"
 			v-model:expanded="expandedRow">
@@ -45,6 +45,7 @@
 
 					<UButton
 						icon="mdi-delete"
+						:loading="isDeleting"
 						@click="showConfirmation(false, getRowData(row))"
 						v-if="dataTable?.actions?.delete !== false" />
 
@@ -54,7 +55,7 @@
 		</UTable>
 
 		<template #footer>
-			<UPagination v-model:page="page" :total="100" />
+			<UPagination v-model:page="page" :total="200" :disabled="isLoading" />
 		</template>
 	</UCard>
 </template>
@@ -62,9 +63,11 @@
 <script setup lang="ts" generic="M extends Record<string, any>">
 import type { VdxTableInterface, VdxTableSlot } from './VdxTable.vue.d.ts'
 import useMdConfirm from '@/composables/useMdConfirm.ts'
+import { useAxios } from '@vueuse/integrations/useAxios'
 import useMdModal from '@/composables/useMdModal.ts'
 import type { Row } from '@tanstack/vue-table'
 import type { ComputedRef } from 'vue'
+import axios from 'axios'
 
 /**
  * Defined Slots
@@ -121,9 +124,7 @@ const expandedRow = ref()
 
 const getRowData = (row: Row<unknown>): M => row.original as M
 
-const page = ref(5)
-
-const { data, loading, fetchData } = dataTable.value.paginationProvider()
+const page = ref(1)
 
 const toast = useToast()
 
@@ -174,26 +175,100 @@ const showConfirmation = (onUpdate: boolean, item: M) => {
 			onConfirm: (overlay) => {
 				overlay.close()
 
-				toast.add({
-					icon: onUpdate ? 'mdi-success' : 'mdi-trash',
-					color: onUpdate ? 'success' : 'error',
-					title: `Item ${onUpdate ? 'Updated' : 'Deleted'}`,
-					description: `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`,
-					duration: 1500,
-				})
+				if (onUpdate) {
+					updateItem(item)
 
-				console.log(item)
+					return
+				}
+
+				deleteItem(item)
 			},
 		}
 	)
 }
 
-const createItem = (payload: M) => {
-	console.log('CREATE THIS', payload)
+const axiosInstance = axios.create({ baseURL: dataTable.value.paginationUrl })
+
+const paginationParams = reactive({
+	params: {
+		_sort: 'id,-views',
+		_page: page.value,
+		_limit: 10,
+	},
+})
+
+const { isLoading, data, execute } = useAxios<M[]>('/', paginationParams, axiosInstance, {
+	immediate: true,
+})
+
+const reloadItems = () =>
+	execute({
+		params: {
+			...paginationParams,
+			_page: page.value,
+		},
+	})
+
+watch(page, () => reloadItems())
+
+const { isLoading: isCreating, execute: executeCreate } = useAxios(
+	'/',
+	{ method: 'POST' },
+	axiosInstance,
+	{ immediate: false }
+)
+const createItem = async (data: M) => {
+	await executeCreate({ data })
+
+	toast.add({
+		icon: 'mdi-success',
+		color: 'success',
+		title: `Item Created`,
+		description: `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`,
+		duration: 1500,
+	})
+
+	reloadItems()
 }
 
-const updateItem = (payload: M) => {
-	showConfirmation(true, payload)
+const { isLoading: isUpdating, execute: executeUpdate } = useAxios(
+	'/',
+	{ method: 'PUT' },
+	axiosInstance,
+	{ immediate: false }
+)
+const updateItem = async (payload: M) => {
+	await executeUpdate(`${dataTable.value.paginationUrl}/${payload.id}`, { data: payload })
+
+	toast.add({
+		icon: 'mdi-success',
+		color: 'success',
+		title: `Item Updated`,
+		description: `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`,
+		duration: 1500,
+	})
+
+	reloadItems()
+}
+
+const { isLoading: isDeleting, execute: executeDelete } = useAxios(
+	'/',
+	{ method: 'DELETE' },
+	axiosInstance,
+	{ immediate: false }
+)
+const deleteItem = async (payload: M) => {
+	await executeDelete(`${dataTable.value.paginationUrl}/${payload.id}`)
+
+	toast.add({
+		icon: 'mdi-trash',
+		color: 'error',
+		title: `Item Deleted`,
+		description: `Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...`,
+		duration: 1500,
+	})
+
+	reloadItems()
 }
 
 /**

@@ -1,3 +1,1 @@
-export default function (dataTable: any) {
-	//
-}
+export default function () {}

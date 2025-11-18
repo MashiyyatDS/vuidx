@@ -3,14 +3,7 @@ import type { MdModalInterface } from './MdModal.vue.d.ts'
 import type { MdFormInterface } from './MdForm.vue.d.ts'
 import type { TableColumn } from '@nuxt/ui'
 
-type PaginationReturn<M> = {
-	loading: Ref<boolean>
-	data: M extends string ? Ref<any[]> : Ref<M[]>
-	fetchData: () => PaginationReturn
-}
-type PaginationProvider<M = string> = () => PaginationReturn<M>
-
-interface VdxTableInterface<M = string> {
+type VdxTableInterface<M = string> = {
 	title?: string
 	items?: M[]
 	columns: TableColumn<M[]>[]
@@ -20,7 +13,6 @@ interface VdxTableInterface<M = string> {
 	}
 	modal: MdModalInterface
 	expandable?: boolean
-	paginationProvider: PaginationProvider<M>
 	actions?: {
 		create?: boolean
 		update?: boolean
@@ -31,6 +23,7 @@ interface VdxTableInterface<M = string> {
 		dateRange?: boolean
 		form?: MdFormInterface
 	}
+	paginationUrl: string
 }
 
 type ItemCallback = <Model>(items: Model[]) => void

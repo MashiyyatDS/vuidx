@@ -35,6 +35,7 @@
     "@nuxt/ui": "^4.0.1",
     "@vueuse/core": "^12.5.0",
     "@vueuse/integrations": "^14.0.0",
+    "axios": "^1.13.2",
     "moment": "^2.30.1",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.5.0",

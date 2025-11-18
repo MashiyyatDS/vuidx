@@ -18,29 +18,6 @@ interface User {
 	address: string
 }
 
-const paginationProvider = <M>() => {
-	const loading = ref(false)
-	const data = ref<M[]>([])
-
-	const fetchData = async () => {
-		data.value = []
-		loading.value = true
-
-		const responseJson = await fetch('https://retoolapi.dev/vgkfAF/data')
-		const responseData = await responseJson.json()
-
-		data.value = responseData
-
-		loading.value = false
-
-		return responseData
-	}
-
-	watchEffect(async () => await fetchData())
-
-	return { loading, data, fetchData }
-}
-
 const usersTable = reactive<VdxTableInterface<User>>({
 	title: 'Users',
 	columns: [
@@ -53,6 +30,7 @@ const usersTable = reactive<VdxTableInterface<User>>({
 			ui: {
 				body: 'sm:p-0 p-0',
 				header: 'sm:px-3 px-3 sm:py-2 py-2',
+				footer: 'flex justify-center sm:p-2 p-2',
 			},
 		},
 		table: {
@@ -61,7 +39,6 @@ const usersTable = reactive<VdxTableInterface<User>>({
 			},
 		},
 	},
-	paginationProvider,
 	filters: {
 		dateRange: true,
 	},
@@ -168,7 +145,6 @@ const usersTable = reactive<VdxTableInterface<User>>({
 			},
 		},
 	},
+	paginationUrl: 'https://retoolapi.dev/vgkfAF/data',
 })
-
-const usersTableRef = useTemplateRef('usersTableRef')
 </script>
