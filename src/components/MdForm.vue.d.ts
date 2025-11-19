@@ -2,6 +2,7 @@ import type { CardProps } from '@nuxt/ui/components/Card.vue.d.ts'
 import type { MdInputInterface } from './MdInput.vue.d.ts'
 import type { EmptyProps } from '@nuxt/ui/components/Empty.vue.d.ts'
 import type { ButtonProps } from '@nuxt/ui/components/Button.vue.d.ts'
+import type { FileUploadProps } from '@nuxt/ui/runtime/components/FileUpload.vue.js'
 
 interface MdFormProps {
 	test?: string
@@ -18,7 +19,7 @@ interface MdFormSlots {
 interface MdFormCollection {
 	title?: string
 	form: MdFormInterface
-	items?: any[] // Use `any[]` instead of `MdFormInterface[]` to break recursion
+	items?: any[]
 	grid?: string
 	attributes: {
 		card?: CardProps | Record<string, any>
@@ -28,7 +29,13 @@ interface MdFormCollection {
 	}
 }
 
-interface MdFormBase {
+interface FormFiles {
+	attributes: { multiple: boolean } & FileUploadProps
+	grid?: `col-span-${number}`
+	value?: File | File[]
+}
+
+interface MdFormInterface {
 	title?: string
 	description?: string
 	attributes?: CardProps
@@ -36,8 +43,7 @@ interface MdFormBase {
 	forms?: Record<string, MdFormInterface>
 	steps?: Record<string, MdFormInterface>
 	collections?: Record<string, MdFormCollection>
+	files?: Record<string, FormFiles>
 }
-
-type MdFormInterface = MdFormBase
 
 export type { MdFormInterface, MdFormSlots, MdFormProps, MdFormCollection }

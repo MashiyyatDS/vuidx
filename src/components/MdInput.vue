@@ -36,6 +36,11 @@
 			<MdSelectMenu :select-menu="input" v-if="input.type === 'select-menu'" ref="itemsRef" />
 
 			<MdInputMenu :input-menu="input" v-if="input.type === 'input-menu'" ref="itemsRef" />
+
+			<MdFileUploader
+				:file-uploader="input"
+				v-if="input.type === 'fileUploader'"
+				ref="itemsRef" />
 		</UFormField>
 	</div>
 </template>
@@ -54,6 +59,7 @@ import MdDatepicker from './InputTypes/MdDatepicker.vue'
 import MdSelect from './InputTypes/MdSelect.vue'
 import MdSelectMenu from './InputTypes/MdSelectMenu.vue'
 import MdInputMenu from './InputTypes/MdInputMenu.vue'
+import MdFileUploader from './InputTypes/MdFileUploader.vue'
 import { computed, useTemplateRef } from 'vue'
 
 const input = defineModel<MdInputInterface>('input', {

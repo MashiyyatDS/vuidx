@@ -10,6 +10,7 @@ import { type MdDatepickerInterface } from './InputTypes/MdDatepicker.vue.d.ts'
 import { type MdSelectInterface } from './InputTypes/MdSelect.vue.d.ts'
 import { type MdSelectMenuInterface } from './InputTypes/MdSelectMenu.vue.d.ts'
 import { type MdInputMenuInterface } from './InputTypes/MdInputMenu.vue.d.ts'
+import { type MdFileUploader } from './InputTypes/MdFileUploader.vue.d.ts'
 
 export interface MdInputProps {
 	test?: string
@@ -32,6 +33,7 @@ type MdInputTypes =
 	| MdSelectInterface
 	| MdSelectMenuInterface
 	| MdInputMenuInterface
+	| MdFileUploader
 
 export type MdInputInterface = MdInputTypes
 

@@ -26,6 +26,17 @@
 						:key="`collection-${collectionKey}`"
 						:collection="collection" />
 				</template>
+
+				<template v-if="form?.files">
+					<div class="grid grid-cols-12 gap-1">
+						<div
+							v-for="(file, key) in form.files"
+							:key="key"
+							:class="[file.grid ?? 'col-span-12']">
+							<UFileUpload :v-model="file.value" v-bind="file.attributes" />
+						</div>
+					</div>
+				</template>
 			</template>
 
 			<template #footer v-if="$slots['actions']">

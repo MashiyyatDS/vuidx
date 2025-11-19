@@ -146,6 +146,38 @@ const modalParams: MdModalInterface = reactive({
 					},
 				},
 			},
+			attachments: {
+				type: 'fileUploader',
+				grid: 'col-span-12',
+				formField: {
+					label: 'Attachments',
+					description: 'Add attachments file to your form.',
+					hint: '(png,jpg,jpeg)',
+				},
+				attributes: {
+					icon: 'mdi-upload',
+					label: 'Attachments',
+					description: 'Add file attachments',
+					class: 'cursor-pointer',
+				},
+			},
+			document: {
+				type: 'fileUploader',
+				grid: 'col-span-12',
+				formField: {
+					label: 'Document',
+					description: 'Add Document file to your form.',
+					hint: '(docx,pdf)',
+				},
+				attributes: {
+					icon: 'mdi-document',
+					label: 'Document',
+					description: 'Add file Document',
+					class: 'cursor-pointer',
+					multiple: false,
+					accept: 'application/pdf,docx',
+				},
+			},
 		},
 		forms: {
 			user: {
