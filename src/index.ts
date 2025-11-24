@@ -8,6 +8,9 @@ import ui from '@nuxt/ui/vue-plugin'
 import { type App } from 'vue'
 import './assets/md.css'
 
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
+
 import { setLocales, en, register, isRegistered } from 'robust-validator'
 
 setLocales(en)
@@ -36,6 +39,7 @@ export default {
 		app.component('MdBreadcrumb', MdBreadcrumb)
 		app.component('MdApp', MdApp)
 		app.component('VdxTable', () => import('./components/VdxTable.vue'))
+		app.component('QuillEditor', QuillEditor)
 		app.use(ui)
 
 		if (options?.rules) {
