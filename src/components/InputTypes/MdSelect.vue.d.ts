@@ -1,6 +1,6 @@
+import type { MdInputBaseInterface, ItemApiProvider, ItemDefaultProvider } from '../../types'
 import type { SelectProps } from '@nuxt/ui/components/Select.vue.d.ts'
 import type { AcceptableValue } from '@nuxt/ui/runtime/types/utils.js'
-import type { MdInputBaseInterface, ItemApiProvider, ItemDefaultProvider } from '../../types'
 
 export interface MdSelectProps {
 	test: string

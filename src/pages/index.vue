@@ -159,6 +159,7 @@ const modalParams: MdModalInterface = reactive({
 					label: 'Attachments',
 					description: 'Add file attachments',
 					class: 'cursor-pointer',
+					accept: 'image/png',
 				},
 			},
 			document: {

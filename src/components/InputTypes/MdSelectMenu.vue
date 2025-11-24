@@ -9,9 +9,7 @@
 			<div
 				ref="bottomIntrRef"
 				id="bottomIntrRef"
-				class="w-full border-t border-default flex justify-center p-1">
-				<span>Bottom</span>
-			</div>
+				class="w-full border-t border-default flex justify-center p-1" />
 		</template>
 	</USelectMenu>
 </template>

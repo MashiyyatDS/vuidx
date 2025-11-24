@@ -1,9 +1,31 @@
 <template>
-	<MdForm :form="form" />
+	<MdForm :form="form">
+		<template #actions>
+			<div class="flex gap-1">
+				<UButton label="Validate Form" @click="validateForm" />
+
+				<UButton label="Get Form Data" @click="getFormData" />
+
+				<UButton label="Set Form Data" @click="setFormData" />
+
+				<UButton label="Set Form Errors" @click="setFormErrors" />
+			</div>
+		</template>
+	</MdForm>
 </template>
 
 <script setup lang="ts">
 import type { MdFormInterface } from '@/components/MdForm.vue.d.ts'
+import { useMdForm } from '@/composables'
+
+const getCompanies = async () => {
+	const responseJSON = await fetch('https://retoolapi.dev/XdsBKF/data')
+	const responseData = await responseJSON.json()
+
+	return {
+		data: responseData,
+	}
+}
 
 const form: MdFormInterface = reactive({
 	title: 'Sample Form',
@@ -93,6 +115,63 @@ const form: MdFormInterface = reactive({
 				},
 			},
 		},
+		companies: {
+			type: 'select-menu',
+			attributes: {
+				class: 'w-full',
+				placeholder: 'Select Companies',
+				labelKey: 'name',
+				valueKey: 'id',
+				multiple: true,
+			},
+			formField: {
+				label: 'Companies',
+				class: 'mb-3',
+			},
+			grid: 'col-span-12',
+			validations: {
+				rules: 'required',
+				messages: {
+					required: 'This field is required',
+				},
+			},
+			itemsProvider: {
+				type: 'api',
+				definedKey: 'name',
+				definedValue: 'id',
+				api: {
+					handler: getCompanies,
+				},
+			},
+		},
 	},
 })
+
+const validateForm = async () => {
+	const validated = await useMdForm(form).validate()
+
+	console.log(validated)
+}
+
+const getFormData = () => {
+	const formData = useMdForm(form).get()
+
+	console.log(formData)
+}
+
+const setFormData = () => {
+	useMdForm(form).set({
+		first_name: 'John',
+		last_name: 'Doe',
+		email: 'johnDoe@gmail.com',
+		active: true,
+		companies: [1, 2, 3, 4],
+	})
+}
+
+const setFormErrors = () => {
+	useMdForm(form).setErrors({
+		first_name: 'This field is required',
+	})
+}
 </script>
