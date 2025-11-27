@@ -17,11 +17,8 @@ export default defineConfig({
 					/\.vue\?vue/, // .vue
 					/\.vue\.[tj]sx?\?vue/,
 				],
-				imports: ['vue', 'vue-router', 'vue-router'],
-				dirs: [
-					'./types',
-					'./composables/**', // all nested modules
-				],
+				imports: ['vue', 'vue-router', 'vue-router', 'pinia'],
+				dirs: ['./types', './src/composables/**', './src/stores/**'],
 				dts: './auto-imports.d.ts',
 				vueTemplate: true,
 				vueDirectives: true,

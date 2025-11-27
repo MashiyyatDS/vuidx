@@ -1,6 +1,15 @@
 <template>
 	<UColorModeButton />
 
+	<div class="flex gap-1">
+		<UButton
+			v-for="(variant, key) in variants"
+			:label="convertStringCases(`${variant}`).regular"
+			:variant="variant"
+			class="cursor-pointer"
+			@click="themeStore().setVariantMode(variant)" />
+	</div>
+
 	<div class="grid grid-cols-12 gap-1">
 		<div class="col-span-2" v-for="(colorMode, key) in colorModes" :key="key">
 			<UButton
@@ -16,18 +25,18 @@
 			<UButton
 				@click="themeStore().setGrayMode(grayMode)"
 				block
+				:variant="themeStore().variantMode"
 				:label="grayMode"
-				class="border cursor-pointer"
-				color="primary" />
+				class="border cursor-pointer" />
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { themeStore } from '@/stores/themeStore'
 import { convertStringCases } from '@/utils'
 
 const grayModes = ref(['slate', 'zinc', 'neutral', 'stone'])
+const variants = ref<VariantType[]>(['solid', 'outline', 'soft', 'subtle', 'link'])
 
 const colorModes = reactive({
 	red: 'bg-red-400',

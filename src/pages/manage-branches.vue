@@ -1,11 +1,14 @@
 <template>
-	<USelect
-		:items="actions"
-		v-model="allowedActions"
+	<!--<UFileUpload
+		v-model="files"
+		class="w-96 min-h-48"
 		multiple
-		orientation="horizontal"
-		:placeholder="allowedActions.length <= 0 ? 'No Actions' : ''"
-		class="my-3 w-100" />
+		:icon="loading ? 'line-md:loading-twotone-loop' : 'material-symbols:upload'"
+		label="Uploads"
+		:disabled="loading"
+		description="Click to add files" />-->
+
+	<!--<UButton @click="reload()" label="Get Files" />-->
 
 	<VdxTable :data-table="branchesTable" ref="branchTableRef">
 		<template #vdx-status-cell="{ item }">
@@ -24,10 +27,9 @@
 
 <script setup lang="ts">
 import type { VdxTableActions, VdxTableInterface } from '@/components/VdxTable.vue.d.ts'
+import usePermission from '@/composables/usePermission'
 import { convertStringCases } from '@/utils'
-
-const actions = ref(['Create', 'Update', 'Delete'])
-const allowedActions = ref<string[]>(['Create', 'Update', 'Delete'])
+import axios from 'axios'
 
 interface Branch {
 	id: number
@@ -36,15 +38,14 @@ interface Branch {
 	status: string
 }
 
-const tableActions = computed(() =>
-	allowedActions.value.length >= 1
-		? {
-				create: allowedActions.value.includes('Create'),
-				delete: allowedActions.value.includes('Delete'),
-				update: allowedActions.value.includes('Update'),
-		  }
-		: { 'no-actions': true }
-) as VdxTableActions
+const tableActions = computed(() => ({
+	create: usePermission('create-branch').allowed,
+	delete: usePermission('delete-branch').allowed,
+	update: usePermission('update-branch').allowed,
+	...(!usePermission(['create-branch', 'update-branch', 'delete-branch']).allowed && {
+		'no-actions': true,
+	}),
+})) as VdxTableActions
 
 const branchesTable = reactive<VdxTableInterface<Branch>>({
 	title: 'Branches',
@@ -183,4 +184,46 @@ const statusColor = computed(
 		APPROVED: 'text-green-400',
 	})
 )
+
+function blobToFile(blob: Blob, fileName: string): File {
+	return new File([blob], fileName, { type: blob.type })
+}
+
+const imageUrls = [
+	'https://media.licdn.com/dms/image/v2/D5603AQELfgzipMJ8cQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1732012492768?e=1765411200&v=beta&t=9b9Ewf-BsU6hWHs6aL3_ng8Oul6CPUs7RXrH7LTSKQE',
+	'https://resource.xp-pen.com/static/images/20251119/mjIlqHH2324jTwAu0jcE.webp',
+]
+
+const loadfiles = () => {
+	const loading = ref(false)
+	const files = ref<File[]>([])
+
+	const getBlobs = async () => {
+		try {
+			loading.value = true
+			const imageResponse = await Promise.all(
+				imageUrls.map((url) => axios.get(url, { responseType: 'blob' }))
+			)
+			const images = imageResponse.map((res, index) =>
+				blobToFile(res.data, `image_${index}.jpg`)
+			)
+
+			files.value = images
+		} catch {
+			console.log('Something went wrong while loading files')
+		}
+
+		loading.value = false
+	}
+
+	getBlobs()
+
+	return {
+		loading,
+		files,
+		reload: getBlobs,
+	}
+}
+
+const { files, loading, reload } = loadfiles()
 </script>

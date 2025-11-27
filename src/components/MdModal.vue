@@ -5,9 +5,16 @@
 		</template>
 
 		<template #footer>
-			<UButton label="Cancel" @click="useMdModal(modal).closeModal()" />
+			<UButton
+				label="Cancel"
+				@click="useMdModal(modal).closeModal()"
+				:variant="themeStore().variantMode" />
 
-			<UButton label="Submit" @click="submitModal" v-bind="modal?.actions?.submit" />
+			<UButton
+				label="Submit"
+				@click="submitModal"
+				v-bind="modal?.actions?.submit"
+				:variant="themeStore().variantMode" />
 		</template>
 	</UModal>
 </template>

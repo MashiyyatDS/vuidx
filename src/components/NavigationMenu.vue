@@ -1,5 +1,9 @@
 <template>
-	<UNavigationMenu :items="modules" />
+	<UNavigationMenu :items="modules">
+		<template #item-label="{ item }">
+			{{ labelStore().labels[`${item.label}`] ?? item.label }}
+		</template>
+	</UNavigationMenu>
 </template>
 
 <script setup lang="ts">

@@ -61,6 +61,11 @@ const routes: RouteRecordRaw[] = [
 		component: () => import('@/pages/quill.vue'),
 		name: 'quill-page',
 	},
+	{
+		path: '/charts',
+		component: () => import('@/pages/charts.vue'),
+		name: 'charts-page',
+	},
 ]
 
 const router = createRouter({

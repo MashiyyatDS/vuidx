@@ -13,7 +13,11 @@
 				</template>
 
 				<template #footer>
-					<UButton label="Logout" block class="cursor-pointer" />
+					<UButton
+						label="Logout"
+						block
+						class="cursor-pointer"
+						:variant="themeStore().variantMode" />
 				</template>
 			</UDashboardSidebar>
 

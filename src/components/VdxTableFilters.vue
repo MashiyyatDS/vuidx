@@ -1,6 +1,9 @@
 <template>
 	<UPopover :ui="{ content: 'sm:p-2 p-2 w-[500px]' }">
-		<UButton icon="material-symbols:filter-list-rounded" class="cursor-pointer" />
+		<UButton
+			icon="material-symbols:filter-list-rounded"
+			class="cursor-pointer"
+			:variant="themeStore().variantMode" />
 
 		<template #content>
 			<!-- Search -->
@@ -46,7 +49,7 @@
 			<USeparator class="my-2" />
 
 			<div class="flex justify-end">
-				<UButton label="Reset" @click="resetFilters" />
+				<UButton label="Reset" @click="resetFilters" :variant="themeStore().variantMode" />
 			</div>
 		</template>
 	</UPopover>

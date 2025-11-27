@@ -6,14 +6,22 @@
 
 				<div class="flex gap-1">
 					<UButton
+						:variant="themeStore().variantMode"
 						icon="mdi-plus"
 						class="cursor-pointer"
 						@click="useMdModal(dataTable.modal).openModal(createItem)"
 						v-if="dataTable?.actions?.create !== false" />
 
-					<UButton icon="mdi-refresh" @click="reloadItems()" class="cursor-pointer" />
+					<UButton
+						:variant="themeStore().variantMode"
+						icon="mdi-refresh"
+						@click="reloadItems()"
+						class="cursor-pointer" />
 
-					<UButton icon="mdi-download" class="cursor-pointer" />
+					<UButton
+						:variant="themeStore().variantMode"
+						icon="mdi-download"
+						class="cursor-pointer" />
 
 					<VdxTableFilters :filters="dataTable.filters" />
 				</div>
@@ -189,7 +197,7 @@ const showConfirmation = (onUpdate: boolean, item: M) => {
 	)
 }
 
-const axiosInstance = axios.create({
+const params = reactive({
 	params: {
 		_page: page.value,
 		_limit: 15,
@@ -197,7 +205,9 @@ const axiosInstance = axios.create({
 	baseURL: dataTable.value.paginationUrl,
 })
 
-const { isLoading, data, execute } = useAxios<M[]>('/', axiosInstance, {
+const axiosInstance = axios.create(params)
+
+const { isLoading, data, execute } = useAxios<M[]>('/', params, {
 	immediate: true,
 })
 
@@ -205,6 +215,7 @@ const reloadItems = () =>
 	execute({
 		params: {
 			_page: page.value,
+			_limit: 15,
 		},
 	})
 

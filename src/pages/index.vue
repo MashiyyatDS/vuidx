@@ -5,15 +5,25 @@
 			class="w-[800px] m-3">
 			<template #header>
 				<UButton
+					:variant="themeStore().variantMode"
 					label="Open Modal"
 					class="self-center cursor-pointer"
 					@click="useMdModal(modalParams).openModal(saveData)" />
 
-				<UButton label="Set Data" @click="useMdForm(modalParams.form).set(formData)" />
-				<UButton label="Get Data" @click="getData" />
-				<UButton label="Reset Data" @click="useMdForm(modalParams.form).reset()" />
-				<UButton label="Validate Data" @click="useMdForm(modalParams.form).validate()" />
-				<UButton label="Get Data" @click="getData" />
+				<UButton
+					:variant="themeStore().variantMode"
+					label="Set Data"
+					@click="useMdForm(modalParams.form).set(formData)" />
+				<UButton :variant="themeStore().variantMode" label="Get Data" @click="getData" />
+				<UButton
+					:variant="themeStore().variantMode"
+					label="Reset Data"
+					@click="useMdForm(modalParams.form).reset()" />
+				<UButton
+					:variant="themeStore().variantMode"
+					label="Validate Data"
+					@click="useMdForm(modalParams.form).validate()" />
+				<UButton :variant="themeStore().variantMode" label="Get Data" @click="getData" />
 			</template>
 
 			<MdForm :form="modalParams.form" />
@@ -22,7 +32,6 @@
 </template>
 
 <script setup lang="ts">
-import { useMdModal, useMdForm, useMdField } from '@/composables'
 import type { MdInputInterface, MdModalInterface } from '@/index'
 import { useToast } from '@nuxt/ui/runtime/composables/useToast.js'
 import { reactive } from 'vue'
